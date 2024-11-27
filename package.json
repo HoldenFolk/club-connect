@@ -1,0 +1,45 @@
+{
+  "name": "club-connect",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@10.7.0",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject",
+    "lint": "eslint */**/*.{js,ts,tsx}",
+    "lint:fix": "eslint */**/*.{js,ts,tsx} --quiet --fix"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "eslint": "^8.57.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.6",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "react-router-dom": "^7.0.1",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^6.1.13"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
