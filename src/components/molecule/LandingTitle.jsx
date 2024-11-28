@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Title content component for the landing page
 const LandingTitle = () => {
 	return (
 		<TitleCenterContainer>

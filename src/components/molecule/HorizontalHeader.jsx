@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../atomic/Button';
 
+// Header component that aligns children horizontally
 const HorizontalHeader = ({children}) => {
-
     return (
         <HeaderDiv>
             {children}

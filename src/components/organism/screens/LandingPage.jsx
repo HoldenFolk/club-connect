@@ -16,7 +16,7 @@ export const LandingPage = () => {
 		<PageTemplate>
 			<LandingPageContainer>
 				<HorizontalHeader>
-					<Logo variant='white'/>
+					<Logo variant='white' height={80}/>
 					<ClickableText text='About'/>
 					<ClickableText text='Contact'/>
 					<ClickableText text='Dashboard'/>
