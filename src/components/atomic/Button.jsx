@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../styles/constants";
 
 
 /**
@@ -24,20 +23,21 @@ const StyledButton = styled.button`
   max-height: 50px;
   font-size: 16px;
   border-radius: 20px;
-  border: ${({ variant }) =>
+  font-family: ${({ theme }) => theme.fonts.primary};
+  border: ${({ variant, theme }) =>
     variant === "outline" ? `2px solid ${theme.colors.white}` : `2px solid ${theme.colors.white}`};
-  background-color: ${({ variant }) =>
+  background-color: ${({ variant, theme }) =>
     variant === "fill" ? theme.colors.white : "transparent"};
-  color: ${({ variant }) =>
+  color: ${({ variant, theme }) =>
     variant === "outline" ? theme.colors.white : theme.colors.fourth};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${({ variant }) =>
+    background-color: ${({ variant, theme }) =>
       variant === "outline" ? theme.colors.white : theme.colors.white};
-    color: ${({ variant }) => (variant === "outline" ?  theme.colors.secondary: theme.colors.secondary )};
-    border: ${({ variant }) => 
+    color: ${({ variant, theme }) => (variant === "outline" ?  theme.colors.secondary: theme.colors.secondary )};
+    border: ${({ variant, theme }) => 
       variant === "outline" ? `2px solid ${theme.colors.white}` : `2px solid ${theme.colors.secondary}`};
   }
 `;

@@ -4,11 +4,20 @@ import { PageTemplate } from '../../template/index';
 import backgroundImage from '../../../assets/backsplash.png';
 import LandingTitle from '../../molecule/LandingTitle';
 import Button from '../../atomic/Button';
+import HorizontalHeader from '../../molecule/HorizontalHeader';
+import ClickableText from '../../atomic/ClickableText'
 
+// Ladning Page Screen Component
+// TODO: Test styles on diffent devices
 export const LandingPage = () => {
 	return (
-		<LandingPageContainer>
-			<PageTemplate>
+		<PageTemplate>
+			<LandingPageContainer>
+				<HorizontalHeader>
+					<ClickableText text='About'/>
+					<ClickableText text='Contact'/>
+					<ClickableText text='Dashboard'/>
+				</HorizontalHeader>
 				<CenterContainer>
 					<LandingTitle />
 					<ButtonContainer> 
@@ -16,8 +25,9 @@ export const LandingPage = () => {
 						<Button text='Sign Up' variant='outline'/>
 					</ButtonContainer>
 				</CenterContainer>
-			</PageTemplate>
-		</LandingPageContainer>
+			</LandingPageContainer>
+		</PageTemplate>
+		
 	);
 };
 
@@ -34,7 +44,7 @@ const CenterContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
+	flex-grow: 1;
 	width: 100%;
 `
 
@@ -43,5 +53,7 @@ const LandingPageContainer = styled.div`
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 `;
