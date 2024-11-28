@@ -6,14 +6,17 @@ import LandingTitle from '../../molecule/LandingTitle';
 import Button from '../../atomic/Button';
 import HorizontalHeader from '../../molecule/HorizontalHeader';
 import ClickableText from '../../atomic/ClickableText'
+import Logo from '../../atomic/Logo'
 
 // Ladning Page Screen Component
 // TODO: Test styles on diffent devices
+// TOOD: Modularize into components?
 export const LandingPage = () => {
 	return (
 		<PageTemplate>
 			<LandingPageContainer>
 				<HorizontalHeader>
+					<Logo variant='white'/>
 					<ClickableText text='About'/>
 					<ClickableText text='Contact'/>
 					<ClickableText text='Dashboard'/>
@@ -46,6 +49,7 @@ const CenterContainer = styled.div`
 	flex-direction: column;
 	flex-grow: 1;
 	width: 100%;
+	margin-bottom: 100px;
 `
 
 const LandingPageContainer = styled.div`
