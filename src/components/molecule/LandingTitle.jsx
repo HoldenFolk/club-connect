@@ -17,13 +17,12 @@ const TitleCenterContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100vh; /* Example: Full viewport height */
 `
 
 const TitleContainer = styled.div`
 	text-align: center;
 	margin: 2rem 0;
-	width: 40%;
+	width: 60%;
 `;
 
 const Header = styled.h1`
