@@ -7,7 +7,7 @@ export const breakpoints = {
 	xl: sizes.laptopL,
 };
 
-const createMinWidthMediaQuery = (size) => {
+const createMinWidthMediaQuery = size => {
 	return `(min-width: ${size}px)`;
 };
 

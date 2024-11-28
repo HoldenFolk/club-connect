@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { PageTemplate } from '../../template/index';
 import backgroundImage from '../../../assets/backsplash.png';
 import LandingTitle from '../../molecule/LandingTitle';
+import Button from '../../atomic/Button';
 
 export const LandingPage = () => {
 	return (
 		<LandingPageContainer>
 			<PageTemplate>
 				<LandingTitle />
+				{/* <Button/> */}
 			</PageTemplate>
 		</LandingPageContainer>
 	);
