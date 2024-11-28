@@ -13,6 +13,8 @@ const NavigationRouter = () => {
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="*" element={<Navigate to="/" />} />
+				<Route path="/dashboard" />
+				<Route path="/login" />
 			</Routes>
 		</Router>
 	);

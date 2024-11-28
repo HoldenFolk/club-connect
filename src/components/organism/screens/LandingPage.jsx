@@ -4,9 +4,7 @@ import { PageTemplate } from '../../template/index';
 import backgroundImage from '../../../assets/backsplash.png';
 import LandingTitle from '../../molecule/LandingTitle';
 import Button from '../../atomic/Button';
-import HorizontalHeader from '../../molecule/HorizontalHeader';
-import ClickableText from '../../atomic/ClickableText'
-import Logo from '../../atomic/Logo'
+import LandingPageHeader from '../../molecule/LandingPageHeader';
 
 // Ladning Page Screen Component
 // TODO: Test styles on diffent devices
@@ -15,12 +13,7 @@ export const LandingPage = () => {
 	return (
 		<PageTemplate>
 			<LandingPageContainer>
-				<HorizontalHeader>
-					<Logo variant='white' height={80}/>
-					<ClickableText text='About'/>
-					<ClickableText text='Contact'/>
-					<ClickableText text='Dashboard'/>
-				</HorizontalHeader>
+				<LandingPageHeader/>
 				<CenterContainer>
 					<LandingTitle />
 					<ButtonContainer> 
