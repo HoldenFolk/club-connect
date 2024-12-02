@@ -8,7 +8,6 @@ import LandingPageHeader from '../../molecule/LandingPageHeader';
 
 // Ladning Page Screen Component
 // TODO: Test styles on diffent devices
-// TOOD: Modularize into components?
 export const LandingPage = () => {
 	return (
 		<PageTemplate>
