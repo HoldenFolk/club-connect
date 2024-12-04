@@ -34,14 +34,14 @@ const Input = styled.input`
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid ${(props) => (props.hasError ? 'red' : '#ccc')};
+  border: 1px solid ${({hasError, theme}) => (hasError ? 'red' : theme.colors.white)};
   border-radius: 4px;
   box-sizing: border-box;
   outline: none;
 
   &:focus {
-    border-color: ${(props) => (props.hasError ? 'red' : '#007bff')};
-    box-shadow: ${(props) => (props.hasError ? '0 0 5px rgba(255, 0, 0, 0.5)' : '0 0 5px rgba(0, 123, 255, 0.5)')};
+    border-color: ${({hasError, theme}) => (hasError ? 'red' : theme.colors.secondary)};
+    box-shadow: ${({hasError}) => (hasError ? '0 0 5px rgba(255, 0, 0, 0.5)' : '0 0 5px rgba(0, 123, 255, 0.5)')};
   }
 `;
 
