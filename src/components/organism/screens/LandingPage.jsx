@@ -1,26 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PageTemplate } from '../../template/index';
-import backgroundImage from '../../../assets/backsplash.png';
 import LandingTitle from '../../molecule/LandingTitle';
 import Button from '../../atomic/Button';
 import LandingPageHeader from '../../molecule/LandingPageHeader';
+import { BackgroundContainer } from '../../molecule/BackgroundContainer.style';
+import { useNavigate } from 'react-router-dom';
 
 // Ladning Page Screen Component
 // TODO: Test styles on diffent devices
 export const LandingPage = () => {
+	const navigate = useNavigate();
+
 	return (
 		<PageTemplate>
-			<LandingPageContainer>
+			<BackgroundContainer>
 				<LandingPageHeader/>
 				<CenterContainer>
 					<LandingTitle />
 					<ButtonContainer> 
-						<Button text='Log In' variant='fill'/>
-						<Button text='Sign Up' variant='outline'/>
+						<Button text='Log In' variant='fill' onClick={() => navigate('/login')}/>
+						<Button text='Sign Up' variant='outline' onClick={() => navigate('/signup')}/>
 					</ButtonContainer>
 				</CenterContainer>
-			</LandingPageContainer>
+			</BackgroundContainer>
 		</PageTemplate>
 		
 	);
@@ -43,13 +46,3 @@ const CenterContainer = styled.div`
 	width: 100%;
 	margin-bottom: 100px;
 `
-
-const LandingPageContainer = styled.div`
-	background-image: url(${backgroundImage});
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-`;
