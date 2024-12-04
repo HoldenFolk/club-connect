@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { LandingPage } from './screens/LandingPage';
 import { Dashboard } from './screens/Dashboard';
+import { LoginPage } from './screens/LoginPage';
 
 const NavigationRouter = () => {
 	return (
@@ -15,7 +16,7 @@ const NavigationRouter = () => {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="*" element={<Navigate to="/" />} />
 				<Route path="/dashboard" element={<Dashboard/>} />
-				<Route path="/login" />
+				<Route path="/login" element={<LoginPage/>}/>
 			</Routes>
 		</Router>
 	);

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Icon = ({ icon, text = '', onClick, ...props }) => {
     return (
         <ClickableWrapper onClick={onClick} {...props}>
-            <FontAwesomeIcon icon={icon} size="2x" />
+            <FontAwesomeIcon icon={icon} size={'2x'} />
             <IconText> {text} </IconText>
         </ClickableWrapper>
     );
