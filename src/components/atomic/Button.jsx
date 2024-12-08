@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-
+import React from 'react';
+import styled from 'styled-components';
 
 /**
  * A customizable button component.
@@ -10,7 +9,7 @@ import styled from "styled-components";
  * @param {"fill"|"outline"} [props.variant] - The button style, either `fill` or `outline`. Defaults to `fill`.
  * @returns {JSX.Element} The styled button component.
  */
-const Button = ({ text , variant = 'fill', ...props }) => {
+const Button = ({ text, variant = 'fill', ...props }) => {
   return (
     <StyledButton variant={variant} {...props}>
       {text}
@@ -25,20 +24,25 @@ const StyledButton = styled.button`
   border-radius: 20px;
   font-family: ${({ theme }) => theme.fonts.primary};
   border: ${({ variant, theme }) =>
-    variant === "outline" ? `2px solid ${theme.colors.white}` : `2px solid ${theme.colors.white}`};
+    variant === 'outline'
+      ? `2px solid ${theme.colors.white}`
+      : `2px solid ${theme.colors.white}`};
   background-color: ${({ variant, theme }) =>
-    variant === "fill" ? theme.colors.white : "transparent"};
+    variant === 'fill' ? theme.colors.white : 'transparent'};
   color: ${({ variant, theme }) =>
-    variant === "outline" ? theme.colors.white : theme.colors.fourth};
+    variant === 'outline' ? theme.colors.white : theme.colors.fourth};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     background-color: ${({ variant, theme }) =>
-      variant === "outline" ? theme.colors.white : theme.colors.white};
-    color: ${({ variant, theme }) => (variant === "outline" ?  theme.colors.secondary: theme.colors.secondary )};
-    border: ${({ variant, theme }) => 
-      variant === "outline" ? `2px solid ${theme.colors.white}` : `2px solid ${theme.colors.secondary}`};
+      variant === 'outline' ? theme.colors.white : theme.colors.white};
+    color: ${({ variant, theme }) =>
+      variant === 'outline' ? theme.colors.secondary : theme.colors.secondary};
+    border: ${({ variant, theme }) =>
+      variant === 'outline'
+        ? `2px solid ${theme.colors.white}`
+        : `2px solid ${theme.colors.secondary}`};
   }
 `;
 

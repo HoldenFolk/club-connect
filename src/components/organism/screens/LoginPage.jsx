@@ -7,30 +7,26 @@ import LandingPageHeader from '../../molecule/LandingPageHeader';
 import RegisterForm from '../../molecule/RegisterForm';
 
 export const LoginPage = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    // Determine the initial state based on the path
-    const [isLogin, setIsLogin] = useState(true);
-  
-    useEffect(() => {
-      // Check the pathname to determine if it's a login or signup route
-      if (location.pathname === '/signup') {
-        setIsLogin(false);
-      } else {
-        setIsLogin(true);
-      }
-    }, [location.pathname]);
+  // Determine the initial state based on the path
+  const [isLogin, setIsLogin] = useState(true);
 
-    return (
-        <PageTemplate>
-            <BackgroundContainer>
-                <LandingPageHeader/>
-                { 
-                    isLogin ? ( <LoginForm/> ):
-                    ( <RegisterForm /> )
-                }       
-            </BackgroundContainer>
-        </PageTemplate>
-    );
+  useEffect(() => {
+    // Check the pathname to determine if it's a login or signup route
+    if (location.pathname === '/signup') {
+      setIsLogin(false);
+    } else {
+      setIsLogin(true);
+    }
+  }, [location.pathname]);
+
+  return (
+    <PageTemplate>
+      <BackgroundContainer>
+        <LandingPageHeader />
+        {isLogin ? <LoginForm /> : <RegisterForm />}
+      </BackgroundContainer>
+    </PageTemplate>
+  );
 };
- 

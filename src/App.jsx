@@ -3,11 +3,11 @@ import Theme from './providers/Theme';
 import NavigationRouter from './components/organism/NavigationRouter';
 
 const App = () => {
-	return (
-		<Theme>
-			<NavigationRouter />
-		</Theme>
-	);
+  return (
+    <Theme>
+      <NavigationRouter />
+    </Theme>
+  );
 };
 
 export default App;
