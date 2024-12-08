@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
 
-const FormPopup = () => {
+const LoginForm = () => {
     const {
         register,
         handleSubmit,
@@ -58,7 +58,7 @@ const FormPopup = () => {
       );
 };
 
-export default FormPopup;
+export default LoginForm;
 
 
 const FormHeader = styled.h1`
@@ -71,8 +71,10 @@ const FormHeader = styled.h1`
 
 const FormWrapper = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 400px;
-  margin: 2rem auto;
+  margin-top: 2rem;
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 8px;

@@ -7,6 +7,7 @@ export const BackgroundContainer = styled.div`
 	background-position: center;
 	background-repeat: no-repeat;
 	display: flex;
+	align-items: center;
 	flex-direction: column;
 	height: 100vh;
 `;
