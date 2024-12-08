@@ -37,14 +37,19 @@ const Input = styled.input.withConfig({
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid ${({ hasError, theme }) => (hasError ? 'red' : theme.colors.white)};
+  border: 1px solid
+    ${({ hasError, theme }) => (hasError ? 'red' : theme.colors.white)};
   border-radius: 4px;
   box-sizing: border-box;
   outline: none;
 
   &:focus {
-    border-color: ${({ hasError, theme }) => (hasError ? 'red' : theme.colors.secondary)};
-    box-shadow: ${({ hasError }) => (hasError ? '0 0 5px rgba(255, 0, 0, 0.5)' : '0 0 5px rgba(0, 123, 255, 0.5)')};
+    border-color: ${({ hasError, theme }) =>
+      hasError ? 'red' : theme.colors.secondary};
+    box-shadow: ${({ hasError }) =>
+      hasError
+        ? '0 0 5px rgba(255, 0, 0, 0.5)'
+        : '0 0 5px rgba(0, 123, 255, 0.5)'};
   }
 `;
 
