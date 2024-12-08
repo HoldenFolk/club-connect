@@ -10,7 +10,7 @@ const LandingPageHeader = () => {
 
     return (
         <HorizontalHeader>
-            <Logo variant='white' height={80}/>
+            <Logo variant='white' height={100}/>
             <ClickableText text='About'onClick={() => navigate('/about')} />
             <ClickableText text='Contact' onClick={() => navigate('/contact')} />
             <ClickableText text='Dashboard' onClick={() => navigate('/dashboard')} />
