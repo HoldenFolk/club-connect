@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
@@ -19,7 +19,14 @@ const ContactForm = () => {
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormHeader>Contact</FormHeader>
+        <TextField
+          label="Name"
+          name="name"
+          register={register}
+          errors={errors}
+          type="text"
+          placeholder="Jane Doe"
+        />
         <TextField
           label="Email"
           name="email"
@@ -35,53 +42,72 @@ const ContactForm = () => {
             },
           }}
         />
-        <TextField
-          label="Password"
-          name="password"
-          register={register}
-          errors={errors}
-          type="password"
-          placeholder="Enter your password"
-          validation={{
-            required: 'Password is required',
-            minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters',
-            },
-          }}
+        <MessageTextArea
+          label="Message"
+          name="message"
+          {...register('message', { required: 'Message is required' })}
+          placeholder="Write your feedback here..."
         />
+
         <Button
           type="submit"
           disabled={isSubmitting}
           variant="fill"
-          text="submit"
+          text="Submit"
         >
-          {isSubmitting ? 'Logging in...' : 'Login'}
+          {isSubmitting ? 'Submitting...' : 'Submit'}
         </Button>
       </form>
     </FormWrapper>
   );
 };
 
-export default ContactForm;
-
-const FormHeader = styled.h1`
-  color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
-  margin-top: 1rem;
-  padding: 1rem;
+  width: 70%; /* Increased width */
+  margin: 2rem auto;
+  padding: 2rem; /* Increased padding */
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   background-color: ${({ theme }) => theme.colors.fourth};
+  animation: ${fadeIn} 1s ease-out;
 `;
+
+const MessageTextArea = styled.textarea`
+  width: 100%;
+  height: 150px; /* Larger height for messages */
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: 1rem;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 8px;
+  resize: none; /* Prevent resizing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 1s ease,
+    box-shadow 1s ease;
+
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.secondary};
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.secondary};
+    transform: scale(1.03);
+  }
+`;
+
+export default ContactForm;
