@@ -9,6 +9,12 @@ export const Contact = () => {
     <PageTemplate>
         <LandingPageHeader variant = 'black'>
         </LandingPageHeader>
+
+        <HeaderContainer>
+            Contact Us
+        </HeaderContainer>
+        <SubHeader>We would love to hear from you.</SubHeader>
+
         <FormDiv>
             <ContactForm>
             </ContactForm>
@@ -16,6 +22,33 @@ export const Contact = () => {
     </PageTemplate>
   );
 };
+
+
+const SubHeader = styled.h2`
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  display: flex;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: 10px;
+  opacity: 70%;
+`;
+
+const HeaderContainer = styled.div`
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  /* text-transform: uppercase; */
+  margin-top: 2rem;
+  opacity: 100%;
+`;
 
 
 const FormDiv = styled.div`

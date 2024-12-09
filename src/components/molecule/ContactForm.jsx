@@ -19,7 +19,7 @@ const ContactForm = () => {
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormHeader>Login</FormHeader>
+        <FormHeader>Contact</FormHeader>
         <TextField
           label="Email"
           name="email"
@@ -77,9 +77,9 @@ const FormWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 400px;
-  margin-top: 2rem;
-  padding: 2rem;
+  max-width: 50%;
+  margin-top: 1rem;
+  padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
