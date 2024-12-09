@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
+import { registerUser } from '../../api/user';
 
 const RegisterForm = () => {
   const {
@@ -11,9 +12,13 @@ const RegisterForm = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  // TODO: Add form submission logic to API here
-  const onSubmit = (e) => {
-    console.log(e);
+  const onSubmit = async (e) => {
+    try {
+      const res = await registerUser(e);
+      console.log(res);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (

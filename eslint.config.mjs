@@ -23,13 +23,16 @@ export default [
       'react/prop-types': 'off',
 
       // Enable Prettier as an ESLint rule
-      'prettier/prettier': ['error', {
-        semi: true,
-        singleQuote: true,
-        trailingComma: 'es5',
-        printWidth: 80,
-        tabWidth: 2,
-      }],
+      'prettier/prettier': [
+        'error',
+        {
+          semi: true,
+          singleQuote: true,
+          trailingComma: 'es5',
+          printWidth: 80,
+          tabWidth: 2,
+        },
+      ],
     },
   },
 ];

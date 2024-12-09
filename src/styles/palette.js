@@ -5,5 +5,5 @@ export const palette = {
   fourth: '#172325',
   alert: '#ffa000',
   white: '#fff',
-  black: '#000814'
+  black: '#000814',
 };
