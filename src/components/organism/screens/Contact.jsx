@@ -7,22 +7,17 @@ import LandingPageHeader from '../../molecule/LandingPageHeader';
 export const Contact = () => {
   return (
     <PageTemplate>
-        <LandingPageHeader variant = 'black'>
-        </LandingPageHeader>
+      <LandingPageHeader variant="black"></LandingPageHeader>
 
-        <HeaderContainer>
-            Contact Us
-        </HeaderContainer>
-        <SubHeader>We would love to hear from you.</SubHeader>
+      <HeaderContainer>Contact Us</HeaderContainer>
+      <SubHeader>We would love to hear from you.</SubHeader>
 
-        <FormDiv>
-            <ContactForm>
-            </ContactForm>
-        </FormDiv>
+      <FormDiv>
+        <ContactForm></ContactForm>
+      </FormDiv>
     </PageTemplate>
   );
 };
-
 
 const SubHeader = styled.h2`
   color: ${({ theme }) => theme.colors.black};
@@ -50,7 +45,6 @@ const HeaderContainer = styled.div`
   opacity: 100%;
 `;
 
-
 const FormDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -60,5 +54,3 @@ const FormDiv = styled.div`
   width: 100%;
   margin-bottom: 100px;
 `;
-
-
