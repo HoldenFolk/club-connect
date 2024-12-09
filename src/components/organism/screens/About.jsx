@@ -10,7 +10,7 @@ import AboutUs from '../../molecule/AboutUs';
 export const About = () => {
 	return (
 		<PageTemplate>
-            <LandingPageHeader>
+            <LandingPageHeader variant='dark'>
             </LandingPageHeader>
             <CenterContainer>
                     <AboutUs>
