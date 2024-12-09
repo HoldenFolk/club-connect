@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-
+import React from 'react';
+import styled from 'styled-components';
 
 /**
  * A customizable button component that is just text.
@@ -9,9 +8,9 @@ import styled from "styled-components";
  * @param {string} props.text - The text to display on the button.
  * @returns {JSX.Element} The styled button component.
  */
-const ClickableText = ({ text , ...props }) => {
+const ClickableText = ({ text, variant = 'light', ...props }) => {
   return (
-    <StyledButton {...props}>
+    <StyledButton variant={variant} {...props}>
       {text}
     </StyledButton>
   );
@@ -22,7 +21,8 @@ const StyledButton = styled.button`
   font-size: 16px;
   border: none;
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, variant }) =>
+    variant == 'light' ? theme.colors.white : theme.colors.fourth};
   font-family: ${({ theme }) => theme.fonts.primary};
   cursor: pointer;
   transition: all 0.3s ease-in-out;

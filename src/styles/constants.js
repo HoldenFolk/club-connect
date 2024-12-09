@@ -4,10 +4,10 @@ import { sizes } from './sizes';
 import { breakpoints, device } from './breakpoints';
 
 export const theme = {
-	palette,
-	colors: palette,
-	fonts,
-	sizes,
-	breakpoints,
-	device,
+  palette,
+  colors: palette,
+  fonts,
+  sizes,
+  breakpoints,
+  device,
 };
