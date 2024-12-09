@@ -19,6 +19,7 @@ const NavigationRouter = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<LoginPage />} />
+		<Route path = "/about" element = {<About/>}/>
       </Routes>
     </Router>
   );

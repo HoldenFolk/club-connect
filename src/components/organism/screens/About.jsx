@@ -7,25 +7,22 @@ import Button from '../../atomic/Button';
 import LandingPageHeader from '../../molecule/LandingPageHeader';
 import AboutUs from '../../molecule/AboutUs';
 
-
-// TODO: Test styles on diffent devices
-// TOOD: Modularize into components?
 export const About = () => {
 	return (
 		<PageTemplate>
             <LandingPageHeader>
-                <CenterContainer>
+            </LandingPageHeader>
+            <CenterContainer>
                     <AboutUs>
-
                     </AboutUs>
                 </CenterContainer>
-            </LandingPageHeader>
 		</PageTemplate>
 		
 	);
 };
 
 
+// How do I change the LandingPageHeader text colour from in here?
 
 const CenterContainer = styled.div`
 	display: flex;
