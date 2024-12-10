@@ -27,7 +27,7 @@ export const getIsLoggedIn = (state) => state.globalStatus.isLoggedIn;
 export const getIsLoading = (state) => state.globalStatus.isConnecting;
 export const getAuthToken = (state) => state.globalStatus.authToken;
 
-export const { setIsLoggedIn, setIsLoading, authToken } =
+export const { setIsLoggedIn, setIsLoading, setAuthToken } =
   globalStatusSlice.actions;
 
 export default globalStatusSlice.reducer;

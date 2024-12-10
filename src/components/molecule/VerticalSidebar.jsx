@@ -29,4 +29,5 @@ const VerticalDiv = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* x-offset, y-offset, blur-radius, spread-radius, color */
   min-height: 100vh;
   row-gap: 1.5rem;
+  min-width: 200px;
 `;

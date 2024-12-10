@@ -27,7 +27,7 @@ const ClickableWrapper = styled.div`
   }
 `;
 
-const IconText = styled.text`
+const IconText = styled.p`
   font-family: ${({ theme }) => theme.fonts.primary};
   max-height: 50px;
   font-size: 16px;
