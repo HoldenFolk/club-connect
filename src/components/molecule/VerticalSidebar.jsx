@@ -14,7 +14,7 @@ const VerticalSidebar = () => {
       <Logo variant="black" height={130} />
       <Icon icon={faSearch} alt="Search Icon" text="Search" />
       <Icon icon={faCalendar} alt="Calendar Icon" text="Events" />
-      <Icon icon={faHome} alt="Post Icon" text="Events" />
+      <Icon icon={faHome} alt="Post Icon" text="Dashboard" />
     </VerticalDiv>
   );
 };
@@ -25,7 +25,7 @@ const VerticalDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 20%;
+  width: 30%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* x-offset, y-offset, blur-radius, spread-radius, color */
   min-height: 100vh;
   row-gap: 1.5rem;

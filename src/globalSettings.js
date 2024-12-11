@@ -1,5 +1,5 @@
 const settings = {
-  BASE_API_URL: 'http://localhost:5000',
+  BASE_API_URL: process.env.BASE_API_URL || 'http://localhost:5000',
 };
 
 export default settings;

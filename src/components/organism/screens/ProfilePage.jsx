@@ -3,7 +3,7 @@ import { PageTemplate } from '../../template/index';
 import PrivPagesWrapper from '../PrivPagesWrapper';
 
 // TODO: Encapsulate Horizontal Header
-export const Dashboard = () => {
+export const ProfilePage = () => {
   return (
     <PageTemplate>
       <PrivPagesWrapper></PrivPagesWrapper>

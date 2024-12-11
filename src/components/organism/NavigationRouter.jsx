@@ -10,6 +10,7 @@ import { Dashboard } from './screens/Dashboard';
 import { LoginPage } from './screens/LoginPage';
 import { About } from './screens/About';
 import { Contact } from './screens/Contact';
+import { ProfilePage } from './screens/ProfilePage';
 
 const NavigationRouter = () => {
   return (
@@ -22,6 +23,7 @@ const NavigationRouter = () => {
         <Route path="/signup" element={<LoginPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
