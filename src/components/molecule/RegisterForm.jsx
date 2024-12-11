@@ -50,8 +50,9 @@ const RegisterForm = () => {
           validation={{
             required: 'Email is required',
             pattern: {
-              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              message: 'Invalid email address',
+              value: /^[a-zA-Z0-9._%+-]+@(mail\.mcgill\.ca|mcgill\.ca)$/,
+              message:
+                'Invalid email address (must be @mail.mcgill.ca or @mcgill.ca)',
             },
           }}
         />
@@ -98,6 +99,7 @@ const FormWrapper = styled.div`
   max-width: 400px;
   padding: 2rem;
   border: 1px solid #ddd;
+  margin-top: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: ${({ theme }) => theme.colors.fourth};

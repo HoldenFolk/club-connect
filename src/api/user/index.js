@@ -9,3 +9,13 @@ export const logInUser = async (reqBody) => {
   const response = await apiClient.post('/api/auth/login', reqBody);
   return response.data;
 };
+
+export const getUserById = async (userId) => {
+  const response = await apiClient.get(`/api/users/${userId}`);
+  return response.data;
+};
+
+export const updateUserById = async (userId, reqBody) => {
+  const response = await apiClient.put(`/api/users/${userId}`, reqBody);
+  return response.data;
+};

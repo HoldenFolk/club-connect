@@ -2,10 +2,14 @@ export const saveAuthTokenLocal = (token) => {
   if (token) {
     localStorage.setItem('authToken', token);
   } else {
-    console.warn('Attempted to save an undefined or null token');
+    console.warn('Attempted to save an undefined or null token in local');
   }
 };
 
-export const getAuthTokenLocal = () => {
-  return localStorage.getItem('authToken');
+export const saveUserIdLocal = (userId) => {
+  if (userId) {
+    localStorage.setItem('userId', userId);
+  } else {
+    console.warn('Attempted to save an undefined or null token in local');
+  }
 };

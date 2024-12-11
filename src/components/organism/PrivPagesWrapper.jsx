@@ -12,17 +12,19 @@ const PrivPagesWrapper = ({ children }) => {
   return (
     <DashboardContainer>
       <VerticalSidebar />
-      <HorizontalHeader
-        rightElement={
-          <Icon
-            icon={faUser}
-            alt="Profile Icon"
-            text="Profile"
-            onClick={() => navigate('/profile')}
-          />
-        }
-      />
-      {children}
+      <MainContentContainer>
+        <HorizontalHeader
+          rightElement={
+            <Icon
+              icon={faUser}
+              alt="Profile Icon"
+              text="Profile"
+              onClick={() => navigate('/profile')}
+            />
+          }
+        />
+        {children}
+      </MainContentContainer>
     </DashboardContainer>
   );
 };
@@ -32,6 +34,14 @@ export default PrivPagesWrapper;
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  height: 100vh;
+`;
+
+const MainContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   height: 100vh;
 `;

@@ -1,12 +1,14 @@
 import React from 'react';
 import { PageTemplate } from '../../template/index';
 import PrivPagesWrapper from '../PrivPagesWrapper';
+import ProfileSettings from '../ProfileSettings';
 
-// TODO: Encapsulate Horizontal Header
 export const ProfilePage = () => {
   return (
     <PageTemplate>
-      <PrivPagesWrapper></PrivPagesWrapper>
+      <PrivPagesWrapper>
+        <ProfileSettings />
+      </PrivPagesWrapper>
     </PageTemplate>
   );
 };
