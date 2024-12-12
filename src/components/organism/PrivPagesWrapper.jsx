@@ -15,7 +15,7 @@ const PrivPagesWrapper = ({ children }) => {
       <MainContentContainer>
         <HorizontalHeader
           rightElement={
-            <Icon
+            <StyledIcon
               icon={faUser}
               alt="Profile Icon"
               text="Profile"
@@ -44,4 +44,8 @@ const MainContentContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
+`;
+
+const StyledIcon = styled(Icon)`
+  margin-top: 2rem;
 `;

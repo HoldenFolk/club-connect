@@ -11,6 +11,7 @@ import { LoginPage } from './screens/LoginPage';
 import { About } from './screens/About';
 import { Contact } from './screens/Contact';
 import { ProfilePage } from './screens/ProfilePage';
+import { ClubPage } from './screens/ClubPage';
 
 const NavigationRouter = () => {
   return (
@@ -24,6 +25,7 @@ const NavigationRouter = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/club/:clubName" element={<ClubPage />} />
       </Routes>
     </Router>
   );

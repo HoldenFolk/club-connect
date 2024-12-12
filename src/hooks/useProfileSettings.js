@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import useAttemptLocal from './useAttemptLocal';
 import { getUserById, updateUserById } from '../api/user';
 
-// TODO: Fix multiple API calls error
 const useProfileSettings = () => {
   const {
     register,
@@ -29,7 +28,8 @@ const useProfileSettings = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        console.log('User ID:', userId);
+        // Do not run API call if userId is empty
+        if (!userId) return;
         const userData = await getUserById(userId);
         reset(userData); // Populate the form with fetched data
       } catch (error) {
