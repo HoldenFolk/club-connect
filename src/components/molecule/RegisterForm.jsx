@@ -14,6 +14,7 @@ const RegisterForm = () => {
 
   const onSubmit = async (e) => {
     try {
+      console.log(e);
       const res = await registerUser(e);
       console.log(res);
     } catch (error) {

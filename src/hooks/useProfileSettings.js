@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import useAttemptLocal from './useAttemptLocal';
 import { getUserById, updateUserById } from '../api/user';
 
+// TODO: Fix multiple API calls error
 const useProfileSettings = () => {
   const {
     register,
