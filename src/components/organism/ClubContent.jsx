@@ -1,4 +1,3 @@
-// ClubContent.jsx
 import React from 'react';
 import styled from 'styled-components';
 import ClubHeader from '../molecule/ClubHeader';

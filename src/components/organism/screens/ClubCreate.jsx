@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import VerticalSidebar from '../molecule/VerticalSidebar';
-import HorizontalHeader from '../atomic/HorizontalHeader';
-import Icon from '../atomic/Icon';
+import HorizontalHeader from '../../atomic/HorizontalHeader';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import Icon from '../../atomic/Icon';
+import CreateClubForm from '../../molecule/CreateClubForm';
+import VerticalSidebar from '../../molecule/VerticalSidebar';
 
-const PrivPagesWrapper = ({ children }) => {
+export const ClubCreate = () => {
   const navigate = useNavigate();
 
   return (
@@ -15,13 +15,6 @@ const PrivPagesWrapper = ({ children }) => {
       <VerticalSidebar />
       <MainContentContainer>
         <HorizontalHeader
-          leftElement={
-            <StyledIcon
-              icon={faPlus}
-              text="Create"
-              onClick={() => navigate('/clubcreate')}
-            />
-          }
           rightElement={
             <StyledIcon
               icon={faUser}
@@ -30,14 +23,20 @@ const PrivPagesWrapper = ({ children }) => {
               onClick={() => navigate('/profile')}
             />
           }
-        />
-        {children}
+        >
+          <Title>Create your club</Title>
+        </HorizontalHeader>
+        <CreateClubForm />
       </MainContentContainer>
     </DashboardContainer>
   );
 };
 
-export default PrivPagesWrapper;
+const Title = styled.h2`
+  text-align: center;
+  margin-left: 6rem;
+  font-family: ${({ theme }) => theme.fonts.primary};
+`;
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -53,7 +52,6 @@ const MainContentContainer = styled.div`
   width: 100%;
   height: 100vh;
 `;
-
 const StyledIcon = styled(Icon)`
   margin-top: 2rem;
 `;
