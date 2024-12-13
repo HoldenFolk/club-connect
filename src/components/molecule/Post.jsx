@@ -19,7 +19,7 @@ const Post = ({
     <PostContainer>
       <PostHeaderContainer>
         <ContainerLeft>
-          {logo && <ClubLogo src={logo} alt="Club Logo" />}
+          {logo && <StyledLogo src={logo} alt="Club Logo" />}
           <ClickableText
             text={clubName}
             variant="dark"
@@ -44,6 +44,7 @@ const PostContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
+  justify-content: center;
   width: 100%;
 `;
 
@@ -57,7 +58,7 @@ const ContainerLeft = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   margin-left: 3rem;
 `;
 
@@ -72,7 +73,6 @@ const ContainerRight = styled.div`
 const UserAndDate = styled.h3`
   font-size: 1rem;
   color: #6c757d;
-  margin-bottom: 20px;
 `;
 
 const PostTitle = styled.h1`
@@ -80,4 +80,9 @@ const PostTitle = styled.h1`
   color: ${({ theme }) => theme.colors.fourth};
   font-family: ${({ theme }) => theme.fonts.primary};
   margin-left: 3rem;
+`;
+
+const StyledLogo = styled(ClubLogo)`
+  height: 50px;
+  width: 50px;
 `;
