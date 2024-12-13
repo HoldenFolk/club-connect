@@ -20,6 +20,7 @@ const StyledButton = styled.button`
   max-height: 50px;
   font-size: 16px;
   border: none;
+  font-weight: bold;
   background-color: transparent;
   color: ${({ theme, variant }) =>
     variant == 'light' ? theme.colors.white : theme.colors.fourth};

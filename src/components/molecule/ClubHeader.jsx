@@ -46,7 +46,7 @@ const StyledHeader = styled(HorizontalHeader)`
     bannerImage ? `url(${bannerImage})` : 'none'};
   background-size: cover;
   background-position: center;
-  min-height: 175px;
+  height: 175px;
   background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
@@ -67,4 +67,5 @@ const ClubName = styled.h1`
 const StyledLogo = styled(ClubLogo)`
   width: 100px;
   height: 100px;
+  margin-bottom: 2.5rem;
 `;

@@ -6,6 +6,7 @@ export const createPost = async (reqBody) => {
 };
 
 export const getClubPosts = async (clubName, postCount) => {
+  console.log('Club Name: ', clubName);
   const response = await apiClient.get(
     `/api/posts/clubfeed/${clubName}/${postCount}`
   );

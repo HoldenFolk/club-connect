@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ClubHeader from '../molecule/ClubHeader';
 import ClickableText from '../atomic/ClickableText';
-import Post from '../molecule/Post';
+import PostList from './PostList';
+import { getClubPosts } from '../../api/posts';
 
 const ClubContent = ({ clubData }) => {
   const { name, logo, banner, category, description, website } = clubData;
+  const [posts, setPosts] = useState([]);
+  const POST_COUNT = 20;
+  const DEFAULT_LOGO =
+    'https://imgs.search.brave.com/JUREPkVy5BaQNfhp1cNHrqH8bElEKYzc05D_64RBAtQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtMDAuaWNvbmR1/Y2suY29tL2Fzc2V0/cy4wMC9wcm9maWxl/LWRlZmF1bHQtaWNv/bi01MTJ4NTExLXY0/c3c0bTI5LnBuZw';
+
+  // Fetch user data on component mount
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        if (!name) return;
+        const response = await getClubPosts(name, POST_COUNT);
+        setPosts(response.posts);
+      } catch (error) {
+        console.error('Error fetching clubData:', error);
+      }
+    };
+
+    fetchPostData();
+  }, [name]);
 
   return (
     <ClubContainer>
-      <ClubHeader name={name} logo={logo} banner={banner} />
+      <ClubHeader name={name} logo={logo || DEFAULT_LOGO} banner={banner} />
       <ClubInfo>
         <ClubCategory>Category: {category}</ClubCategory>
         <ClubDescription>{description}</ClubDescription>
@@ -17,21 +37,15 @@ const ClubContent = ({ clubData }) => {
           <ClickableText
             variant="dark"
             text="Visit Club Website"
-            onClick={website}
+            onClick={() => window.open(website, '_blank')}
           />
         )}
       </ClubInfo>
 
-      {/* Placeholder for the PostFeed component */}
-      <PostFeedPlaceholder>
-        <Post
-          clubName={name}
-          datePosted={'Dec 10th'}
-          userName={'cheeseknobs'}
-          title={'Test Title!'}
-          logo={logo}
-        />
-      </PostFeedPlaceholder>
+      {/* Render PostList only if posts is not empty */}
+      {posts && (
+        <PostList posts={posts} defaultLogo={DEFAULT_LOGO} clubName={name} />
+      )}
     </ClubContainer>
   );
 };
@@ -45,10 +59,10 @@ const ClubContainer = styled.div`
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   height: 100vh;
+  overflow: auto;
 `;
 
 const ClubInfo = styled.div`
@@ -68,19 +82,6 @@ const ClubCategory = styled.h3`
 
 const ClubDescription = styled.p`
   font-size: 1rem;
-  color: #343a40;
+  color: ${({ theme }) => theme.colors.fourth};
   margin-bottom: 20px;
-`;
-
-const PostFeedPlaceholder = styled.div`
-  width: 100%;
-  height: 300px;
-  background-color: #e9ecef;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6c757d;
-  font-size: 1.5rem;
-  margin-top: 20px;
-  border-radius: 8px;
 `;
