@@ -4,6 +4,9 @@ import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
 import { useNavigate } from 'react-router-dom';
+import ImageUpload from '../atomic/ImageUpload';
+import { createClub } from '../../api/club/index';
+import useAttemptLocal from '../../hooks/useAttemptLocal';
 
 const CreateClubForm = () => {
   const {
@@ -13,38 +16,65 @@ const CreateClubForm = () => {
   } = useForm();
 
   // TODO: Replace with API call
-  const onSubmit = (e) => {
-    console.log(e);
+  const onSubmit = async (e) => {
+    e.logo = '';
+    e.banner = '';
+    try {
+      console.log('Token being sent:', authToken);
+      const res = await createClub(e, authToken);
+      console.log(res);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   const navigate = useNavigate();
-
+  const { authToken } = useAttemptLocal();
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           label="Club Name"
-          name="Club Name"
+          name="name"
           register={register}
           errors={errors}
           type="text"
           placeholder="My Club"
+          validation={{ required: 'Name is required' }}
         />
+        <MessageTextArea
+          label="Description"
+          name="description"
+          {...register('description', { required: 'Description is required' })}
+          placeholder="What is your club about?"
+        />
+        <TextField
+          label="Faculty"
+          name="category"
+          register={register}
+          errors={errors}
+          type="text"
+          validation={{ required: 'Faculty is required' }}
+          placeholder="Your club faculty"
+        />
+        {/* TODO: ADD IMAGE UPLOAD FOR BANNER */}
+        {/* TODO: ADD IMAGE UPLOAD FOR LOGO */}
 
         <TextField
           label="Instagram"
-          name="Instagram"
+          name="website"
           register={register}
           errors={errors}
           type="text"
           placeholder="Instagram account URL"
         />
         <TextField
-          label="Twitter"
-          name="Twitter"
+          label="Email"
+          name="email"
           register={register}
           errors={errors}
+          validation={{ required: 'Email is required' }}
           type="text"
-          placeholder="Twitter account URL"
+          placeholder="Your email"
         />
         <ButtonWrapper>
           <Button
@@ -52,7 +82,7 @@ const CreateClubForm = () => {
             disabled={isSubmitting}
             variant="fill"
             text="Create"
-            onClick={() => navigate('/profile')}
+            //onClick={() => navigate('/profile')}
           >
             {isSubmitting ? 'Creating...' : 'Create'}
           </Button>
@@ -117,5 +147,4 @@ const MessageTextArea = styled.textarea`
     transform: scale(1.03);
   }
 `;
-
 export default CreateClubForm;
