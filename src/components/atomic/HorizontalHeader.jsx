@@ -42,6 +42,7 @@ const CenterContent = styled.div`
   transform: translateX(-50%);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 30px;
   width: 100%;
 `;

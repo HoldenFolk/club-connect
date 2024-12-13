@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ClubHeader from '../molecule/ClubHeader';
 import ClickableText from '../atomic/ClickableText';
+import Post from '../molecule/Post';
 
 const ClubContent = ({ clubData }) => {
   const { name, logo, banner, category, description, website } = clubData;
@@ -23,7 +24,15 @@ const ClubContent = ({ clubData }) => {
       </ClubInfo>
 
       {/* Placeholder for the PostFeed component */}
-      <PostFeedPlaceholder>Nothing Here Yet...</PostFeedPlaceholder>
+      <PostFeedPlaceholder>
+        <Post
+          clubName={name}
+          datePosted={'Dec 10th'}
+          userName={'cheeseknobs'}
+          title={'Test Title!'}
+          logo={logo}
+        />
+      </PostFeedPlaceholder>
     </ClubContainer>
   );
 };
