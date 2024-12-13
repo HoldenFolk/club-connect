@@ -7,14 +7,32 @@ import {
   faCalendar,
   faHome,
 } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const VerticalSidebar = () => {
+  const navigate = useNavigate();
+
   return (
     <VerticalDiv>
       <Logo variant="black" height={130} />
-      <Icon icon={faSearch} alt="Search Icon" text="Search" />
-      <Icon icon={faCalendar} alt="Calendar Icon" text="Events" />
-      <Icon icon={faHome} alt="Post Icon" text="Dashboard" />
+      <Icon
+        icon={faSearch}
+        alt="Search Icon"
+        text="Search"
+        onClick={() => navigate('/search')}
+      />
+      <Icon
+        icon={faCalendar}
+        alt="Calendar Icon"
+        text="Events"
+        onClick={() => navigate('/events')}
+      />
+      <Icon
+        icon={faHome}
+        alt="Post Icon"
+        text="Dashboard"
+        onClick={() => navigate('/dashboard')}
+      />
     </VerticalDiv>
   );
 };

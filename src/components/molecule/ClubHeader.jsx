@@ -46,6 +46,7 @@ const StyledHeader = styled(HorizontalHeader)`
   background-size: cover;
   background-position: center;
   height: 175px;
+  min-width: 600px;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
@@ -64,10 +65,10 @@ const ClubName = styled.h1`
 `;
 
 const ClubLogo = styled.img`
-  width: 10%;
-  height: 50%;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 4px solid white;
   background-color: #fff;
-  margin-left: 3rem;
+  margin-left: 2rem;
 `;

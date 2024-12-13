@@ -37,13 +37,11 @@ const LeftContent = styled.div`
 `;
 
 const CenterContent = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 30px;
+  justify-content: center;
   width: 100%;
+  gap: 30px;
 `;
 
 const RightContent = styled.div`
@@ -51,7 +49,7 @@ const RightContent = styled.div`
   align-items: center;
   gap: 30px;
   margin-right: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 export default HorizontalHeader;
