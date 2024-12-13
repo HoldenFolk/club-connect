@@ -33,7 +33,7 @@ const LeftContent = styled.div`
   justify-content: center;
   gap: 30px;
   margin-left: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 const CenterContent = styled.div`
@@ -42,6 +42,7 @@ const CenterContent = styled.div`
   justify-content: center;
   width: 100%;
   gap: 30px;
+  margin-top: 3rem;
 `;
 
 const RightContent = styled.div`
