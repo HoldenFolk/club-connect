@@ -29,11 +29,11 @@ const ClubHeader = ({ banner, logo, name }) => {
       }
     >
       <AlignLeftContainer>
-        <ClubName>{name}</ClubName>
-        <ClubLogo
+        <StyledLogo
           src={logo || 'https://via.placeholder.com/100'}
           alt="Club Logo"
         />
+        <ClubName>{name}</ClubName>
       </AlignLeftContainer>
     </StyledHeader>
   );
@@ -47,7 +47,7 @@ const StyledHeader = styled(HorizontalHeader)`
   background-size: cover;
   background-position: center;
   min-height: 175px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 const AlignLeftContainer = styled.div`
@@ -61,5 +61,10 @@ const AlignLeftContainer = styled.div`
 const ClubName = styled.h1`
   /* font-size: 4rem; */
   font-family: ${({ theme }) => theme.fonts.primary};
-  margin-left: 6rem;
+  margin-left: 2rem;
+`;
+
+const StyledLogo = styled(ClubLogo)`
+  width: 100px;
+  height: 100px;
 `;

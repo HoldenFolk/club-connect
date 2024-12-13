@@ -6,5 +6,4 @@ export const ClubLogo = styled.img`
   border-radius: 50%;
   border: 4px solid white;
   background-color: #fff;
-  margin-left: 3rem;
 `;
