@@ -13,6 +13,7 @@ import { Contact } from './screens/Contact';
 import { ProfilePage } from './screens/ProfilePage';
 import { ClubPage } from './screens/ClubPage';
 import { ClubCreate } from './screens/ClubCreate';
+import { PostPage } from './screens/PostPage';
 
 const NavigationRouter = () => {
   return (
@@ -28,6 +29,7 @@ const NavigationRouter = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/club/:clubName" element={<ClubPage />} />
         <Route path="/clubcreate" element={<ClubCreate />} />
+        <Route path="/club/:clubName/post" element={<PostPage />} />
       </Routes>
     </Router>
   );

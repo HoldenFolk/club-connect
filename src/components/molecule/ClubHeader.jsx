@@ -8,6 +8,7 @@ import { faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Button from '../atomic/Button';
 import useAttemptLocal from '../../hooks/useAttemptLocal';
 import { followClub, unfollowClub, isFollowing } from '../../api';
+import { theme } from '../../styles/constants';
 
 const ClubHeader = ({ banner, logo, name, clubID }) => {
   const navigate = useNavigate();
@@ -28,6 +29,10 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
     } catch (error) {
       console.error('Error Following/Unfollowing Club:', error);
     }
+  };
+
+  const handlePostClick = async () => {
+    navigate(`/club/${name}/post`);
   };
 
   useEffect(() => {
@@ -74,6 +79,12 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
           variant={following ? 'fill' : 'outline'}
           onClick={handleFollowClick}
           color="black"
+        />
+        <Button
+          text={'Post +'}
+          variant={'fill'}
+          onClick={handlePostClick}
+          color={theme.colors.tertiary}
         />
       </AlignLeftContainer>
     </StyledHeader>

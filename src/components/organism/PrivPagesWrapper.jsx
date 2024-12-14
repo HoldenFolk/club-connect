@@ -17,7 +17,7 @@ const PrivPagesWrapper = ({ children }) => {
           leftElement={
             <StyledIcon
               icon={faPlus}
-              text="Create"
+              text="Create Club"
               onClick={() => navigate('/clubcreate')}
             />
           }
