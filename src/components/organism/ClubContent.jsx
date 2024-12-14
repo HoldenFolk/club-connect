@@ -6,15 +6,15 @@ import PostList from './PostList';
 import { getClubPosts } from '../../api/posts';
 
 const ClubContent = ({ clubData }) => {
-  const { name, logo, banner, category, description, website } = clubData;
+  const { name, logo, banner, category, description, website, clubID } =
+    clubData;
   const [posts, setPosts] = useState([]);
   const POST_COUNT = 20;
   const DEFAULT_LOGO =
     'https://imgs.search.brave.com/JUREPkVy5BaQNfhp1cNHrqH8bElEKYzc05D_64RBAtQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtMDAuaWNvbmR1/Y2suY29tL2Fzc2V0/cy4wMC9wcm9maWxl/LWRlZmF1bHQtaWNv/bi01MTJ4NTExLXY0/c3c0bTI5LnBuZw';
-
-  // Fetch user data on component mount
+  // Fetch post data on component mount
   useEffect(() => {
-    const fetchPostData = async () => {
+    const fetchAPIData = async () => {
       try {
         if (!name) return;
         const response = await getClubPosts(name, POST_COUNT);
@@ -24,22 +24,30 @@ const ClubContent = ({ clubData }) => {
       }
     };
 
-    fetchPostData();
+    fetchAPIData();
   }, [name]);
 
   return (
     <ClubContainer>
-      <ClubHeader name={name} logo={logo || DEFAULT_LOGO} banner={banner} />
+      <ClubHeader
+        name={name}
+        logo={logo || DEFAULT_LOGO}
+        banner={banner}
+        clubID={clubID}
+      />
       <ClubInfo>
-        <ClubCategory>Category: {category}</ClubCategory>
-        <ClubDescription>{description}</ClubDescription>
-        {website && (
-          <ClickableText
-            variant="dark"
-            text="Visit Club Website"
-            onClick={() => window.open(website, '_blank')}
-          />
-        )}
+        <HorizontalContainer>
+          <ClubCategory>Category: {category}</ClubCategory>
+          {website && (
+            <ClickableText
+              variant="dark"
+              text="Visit Club Website"
+              onClick={() => window.open(website, '_blank')}
+            />
+          )}
+        </HorizontalContainer>
+
+        <ClubDescription>Description: {description}</ClubDescription>
       </ClubInfo>
 
       {/* Render PostList only if posts is not empty */}
@@ -84,4 +92,9 @@ const ClubDescription = styled.p`
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.fourth};
   margin-bottom: 20px;
+`;
+
+const HorizontalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;

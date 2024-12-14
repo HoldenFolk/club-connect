@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
@@ -6,6 +6,8 @@ import Button from '../atomic/Button';
 import { registerUser } from '../../api/user';
 
 const RegisterForm = () => {
+  const [apiError, setApiError] = useState('');
+
   const {
     register,
     handleSubmit,
@@ -13,12 +15,17 @@ const RegisterForm = () => {
   } = useForm();
 
   const onSubmit = async (e) => {
+    setApiError(''); // Clear previous errors before submitting
     try {
       console.log(e);
       const res = await registerUser(e);
       console.log(res);
     } catch (error) {
       console.log(error.response);
+      setApiError(
+        error.response?.data?.error ||
+          'An unexpected error occurred. Please try again.'
+      );
     }
   };
 
@@ -26,12 +33,15 @@ const RegisterForm = () => {
     <FormWrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormHeader>Sign Up</FormHeader>
+
+        {apiError && <ErrorMessage>{apiError}</ErrorMessage>}
+
         <TextField
           label="Username"
           name="username"
           register={register}
           errors={errors}
-          type="username"
+          type="text"
           placeholder="Enter your display name"
           validation={{
             required: 'Username is required',
@@ -78,7 +88,7 @@ const RegisterForm = () => {
           variant="fill"
           text="submit"
         >
-          {isSubmitting ? 'Logging in...' : 'Login'}
+          {isSubmitting ? 'Registering...' : 'Register'}
         </Button>
       </form>
     </FormWrapper>
@@ -90,7 +100,7 @@ export default RegisterForm;
 const FormHeader = styled.h1`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
 `;
@@ -104,4 +114,10 @@ const FormWrapper = styled.div`
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: ${({ theme }) => theme.colors.fourth};
+`;
+
+const ErrorMessage = styled.p`
+  color: ${({ theme }) => theme.colors.error || 'red'};
+  font-size: 1rem;
+  text-align: center;
 `;

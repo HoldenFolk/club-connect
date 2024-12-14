@@ -23,7 +23,7 @@ const HeaderDiv = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 0rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative;
 `;
 

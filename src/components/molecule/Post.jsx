@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ClubLogo } from '../atomic/ClubLogo';
 import ClickableText from '../atomic/ClickableText';
 import { useNavigate } from 'react-router-dom';
+import { getUserById } from '../../api/user';
 
-const Post = ({ title, content, logo, clubName, datePosted, userName }) => {
-  console.log('Post Props:', {
-    title,
-    content,
-    logo,
-    clubName,
-    datePosted,
-    userName,
-  });
-
+const Post = ({ title, content, logo, clubName, datePosted, userId }) => {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState();
+
+  // Fetch user data on component mount
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        if (!userId) return;
+        const response = await getUserById(userId);
+        setUserData(response);
+      } catch (error) {
+        console.error('Error fetching clubData:', error);
+      }
+    };
+
+    fetchPostData();
+  }, []);
+
+  // Format the datePosted
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  };
 
   return (
     <PostContainer>
@@ -29,7 +50,7 @@ const Post = ({ title, content, logo, clubName, datePosted, userName }) => {
         </ContainerLeft>
         <ContainerRight>
           <UserAndDate>
-            Posted On {datePosted} by {userName}
+            Posted On {formatDate(datePosted)} By: {userData?.username}
           </UserAndDate>
         </ContainerRight>
       </HorizontalContainer>
@@ -41,6 +62,7 @@ const Post = ({ title, content, logo, clubName, datePosted, userName }) => {
 
 export default Post;
 
+// Styled Components for Post
 const PostContainer = styled.div`
   padding: 1rem;
   display: flex;
@@ -49,7 +71,7 @@ const PostContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* x-offset, y-offset, blur-radius, spread-radius, color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
 const HorizontalContainer = styled.div`

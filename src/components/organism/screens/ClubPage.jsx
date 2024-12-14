@@ -25,7 +25,6 @@ export const ClubPage = () => {
       try {
         const clubData = await getClubByName(clubName);
         setClubData(clubData);
-        console.log(clubData);
       } catch (error) {
         console.error('Error fetching clubData:', error);
       }

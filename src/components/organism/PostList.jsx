@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Post from '../molecule/Post';
 
 const PostList = ({ posts, defaultLogo, clubName }) => {
-  console.log('Post List: ', posts);
   return (
     <PostListContainer>
       {posts.map((post, index) => (
@@ -14,7 +13,7 @@ const PostList = ({ posts, defaultLogo, clubName }) => {
             logo={post.logo || defaultLogo}
             clubName={clubName}
             datePosted={post.date}
-            userName={post.userName}
+            userId={post.userID}
           />
         </PostWrapper>
       ))}

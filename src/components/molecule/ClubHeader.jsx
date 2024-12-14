@@ -1,17 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Icon from '../atomic/Icon';
 import HorizontalHeader from '../atomic/HorizontalHeader';
 import { ClubLogo } from '../atomic/ClubLogo';
 import { useNavigate } from 'react-router-dom';
 import { faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Button from '../atomic/Button';
+import useAttemptLocal from '../../hooks/useAttemptLocal';
+import { followClub, unfollowClub, isFollowing } from '../../api';
 
-const ClubHeader = ({ banner, logo, name }) => {
+const ClubHeader = ({ banner, logo, name, clubID }) => {
   const navigate = useNavigate();
+  const [following, setFollowing] = useState(false);
+  const { authToken } = useAttemptLocal();
+
+  const handleFollowClick = async () => {
+    try {
+      if (following) {
+        const response = await unfollowClub({ clubID }, authToken);
+        console.log('Unfollow Club Response:', response);
+      } else {
+        const response = await followClub({ clubID }, authToken);
+        console.log('Follow Club Response:', response);
+      }
+      // Update the state only after a successful API call
+      setFollowing(!following);
+    } catch (error) {
+      console.error('Error Following/Unfollowing Club:', error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchAPIData = async () => {
+      try {
+        if (!authToken || clubID == 0) return;
+        const response = await isFollowing({ clubID }, authToken);
+        setFollowing(response.isFollowing);
+      } catch (error) {
+        console.error('Error Fetching Follow Status:', error);
+      }
+    };
+
+    fetchAPIData();
+  }, [authToken, clubID]);
 
   return (
     <StyledHeader
-      bannerImage={banner} // Pass the bannerImage prop to StyledHeader
+      bannerImage={banner}
       rightElement={
         <Icon
           icon={faUser}
@@ -34,6 +69,11 @@ const ClubHeader = ({ banner, logo, name }) => {
           alt="Club Logo"
         />
         <ClubName>{name}</ClubName>
+        <Button
+          text={following ? 'Following' : 'Follow'}
+          variant={following ? 'fill' : 'outline'}
+          onClick={handleFollowClick}
+        />
       </AlignLeftContainer>
     </StyledHeader>
   );
@@ -41,6 +81,7 @@ const ClubHeader = ({ banner, logo, name }) => {
 
 export default ClubHeader;
 
+// Styled Components
 const StyledHeader = styled(HorizontalHeader)`
   background-image: ${({ bannerImage }) =>
     bannerImage ? `url(${bannerImage})` : 'none'};
@@ -56,12 +97,11 @@ const AlignLeftContainer = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 175px;
+  gap: 2rem;
 `;
 
 const ClubName = styled.h1`
-  /* font-size: 4rem; */
   font-family: ${({ theme }) => theme.fonts.primary};
-  margin-left: 2rem;
 `;
 
 const StyledLogo = styled(ClubLogo)`

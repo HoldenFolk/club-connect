@@ -18,7 +18,7 @@ const useAttemptLocal = () => {
 
     if (!auth || !Id) {
       // Redirect to the login page if either token or userId is missing
-      console.log('No auth or Id token found in Local. Redirect to login');
+      console.warn('No auth or Id token found in Local. Redirect to login');
       navigate('/login');
     }
   }, [navigate]);
