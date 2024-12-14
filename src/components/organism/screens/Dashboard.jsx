@@ -5,7 +5,9 @@ import PrivPagesWrapper from '../PrivPagesWrapper';
 export const Dashboard = () => {
   return (
     <PageTemplate>
-      <PrivPagesWrapper></PrivPagesWrapper>
+      <PrivPagesWrapper>
+        
+      </PrivPagesWrapper>
     </PageTemplate>
   );
 };
