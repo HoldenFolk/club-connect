@@ -54,7 +54,7 @@ const Post = ({ title, content, logo, datePosted, userId, clubId }) => {
         <ContainerLeft>
           {logo && <StyledLogo src={logo} alt="Club Logo" />}
           <ClickableText
-            text={clubData?.clubName}
+            text={clubData?.name}
             variant="dark"
             onClick={() => navigate(`/club/${clubData?.name}`)}
           />

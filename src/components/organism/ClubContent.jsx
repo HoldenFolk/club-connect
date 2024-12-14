@@ -42,13 +42,13 @@ const ClubContent = ({ clubData }) => {
           {website && (
             <ClickableText
               variant="dark"
-              text="Visit Club Website"
+              text={`Club Website: ${website}`}
               onClick={() => window.open(website, '_blank')}
             />
           )}
         </HorizontalContainer>
 
-        <ClubDescription>Description: {description}</ClubDescription>
+        <ClubDescription>About: {description}</ClubDescription>
       </ClubInfo>
 
       {/* Render PostList only if posts is not empty */}
@@ -69,14 +69,13 @@ const ClubContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   height: 100vh;
-  overflow: auto;
 `;
 
 const ClubInfo = styled.div`
   width: 100%;
   padding: 20px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-direction: column;
 `;
@@ -84,7 +83,7 @@ const ClubInfo = styled.div`
 const ClubCategory = styled.h3`
   font-size: 1rem;
   color: #6c757d;
-  margin-bottom: 20px;
+  margin-right: 2rem;
 `;
 
 const ClubDescription = styled.p`
@@ -96,4 +95,8 @@ const ClubDescription = styled.p`
 const HorizontalContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
 `;

@@ -33,7 +33,7 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
   useEffect(() => {
     const fetchAPIData = async () => {
       try {
-        if (!authToken || clubID == 0) return;
+        if (!authToken || clubID === 0) return;
         const response = await isFollowing({ clubID }, authToken);
         setFollowing(response.isFollowing);
       } catch (error) {
@@ -109,4 +109,11 @@ const StyledLogo = styled(ClubLogo)`
   width: 100px;
   height: 100px;
   margin-bottom: 2.5rem;
+
+  /* Media query to shrink logo to half size on smaller screens */
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
 `;

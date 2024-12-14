@@ -33,106 +33,109 @@ const ProfileSettings = () => {
   };
 
   return (
-    <FormWrapper>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormHeader>Profile Settings</FormHeader>
+    <AlignCenterContainer>
+      <FormWrapper>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <FormHeader>Profile Settings</FormHeader>
 
-        <TextField
-          label="Email"
-          name="email"
-          register={register}
-          errors={errors}
-          type="email"
-          placeholder="Enter your email"
-          validation={{
-            pattern: {
-              value: /^[a-zA-Z0-9._%+-]+@(mail\.mcgill\.ca|mcgill\.ca)$/,
-              message: 'Invalid email address (must be @mail.mcgill.ca or @mcgill.ca)',
-            },
-          }}
-        />
+          <TextField
+            label="Email"
+            name="email"
+            register={register}
+            errors={errors}
+            type="email"
+            placeholder="Enter your email"
+            validation={{
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@(mail\.mcgill\.ca|mcgill\.ca)$/,
+                message:
+                  'Invalid email address (must be @mail.mcgill.ca or @mcgill.ca)',
+              },
+            }}
+          />
 
-        <TextField
-          label="Username"
-          name="username"
-          register={register}
-          errors={errors}
-          type="text"
-          placeholder="Enter your username"
-          validation={{
-            minLength: {
-              value: 6,
-              message: 'Username must be at least 6 characters',
-            },
-          }}
-        />
+          <TextField
+            label="Username"
+            name="username"
+            register={register}
+            errors={errors}
+            type="text"
+            placeholder="Enter your username"
+            validation={{
+              minLength: {
+                value: 6,
+                message: 'Username must be at least 6 characters',
+              },
+            }}
+          />
 
-        <TextField
-          label="Password"
-          name="password"
-          register={register}
-          errors={errors}
-          type="password"
-          placeholder="Change Password"
-          validation={{
-            minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters',
-            },
-          }}
-        />
+          <TextField
+            label="Password"
+            name="password"
+            register={register}
+            errors={errors}
+            type="password"
+            placeholder="Change Password"
+            validation={{
+              minLength: {
+                value: 6,
+                message: 'Password must be at least 6 characters',
+              },
+            }}
+          />
 
-        <ButtonContainer>
-          {isEditing ? (
-            <>
+          <ButtonContainer>
+            {isEditing ? (
+              <>
+                <Button
+                  type="button"
+                  disabled={isSubmitting}
+                  variant="outline"
+                  text="Cancel"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsEditing(false);
+                  }}
+                />
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  variant="fill"
+                  text={isSubmitting ? 'Saving...' : 'Save Changes'}
+                />
+              </>
+            ) : (
               <Button
                 type="button"
                 disabled={isSubmitting}
-                variant="outline"
-                text="Cancel"
+                variant="fill"
+                text="Edit"
                 onClick={(e) => {
                   e.preventDefault();
-                  setIsEditing(false);
+                  setIsEditing(true);
                 }}
               />
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                variant="fill"
-                text={isSubmitting ? 'Saving...' : 'Save Changes'}
-              />
-            </>
-          ) : (
+            )}
+          </ButtonContainer>
+
+          <DeleteButtonContainer>
             <Button
               type="button"
-              disabled={isSubmitting}
-              variant="fill"
-              text="Edit"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsEditing(true);
-              }}
+              variant="outline"
+              color="#dc3545"
+              text="Delete Profile"
+              onClick={handleDeleteClick}
             />
-          )}
-        </ButtonContainer>
+          </DeleteButtonContainer>
+        </form>
 
-        <DeleteButtonContainer>
-          <Button
-            type="button"
-            variant="outline"
-            color="#dc3545"
-            text="Delete Profile"
-            onClick={handleDeleteClick}
-          />
-        </DeleteButtonContainer>
-      </form>
-
-      <DeleteConfirmationPopup
-        isOpen={isDeletePopupOpen}
-        onClose={handleClosePopup}
-        onConfirm={handleConfirmDelete}
-      />
-    </FormWrapper>
+        <DeleteConfirmationPopup
+          isOpen={isDeletePopupOpen}
+          onClose={handleClosePopup}
+          onConfirm={handleConfirmDelete}
+        />
+      </FormWrapper>
+    </AlignCenterContainer>
   );
 };
 
@@ -150,6 +153,8 @@ const FormWrapper = styled.div`
   display: flex;
   max-width: 400px;
   padding: 2rem;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #ddd;
   margin-top: 2rem;
   border-radius: 8px;
@@ -168,4 +173,10 @@ const DeleteButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+`;
+
+const AlignCenterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

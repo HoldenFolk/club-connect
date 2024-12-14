@@ -43,9 +43,20 @@ const VerticalDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* x-offset, y-offset, blur-radius, spread-radius, color */
+  width: 25%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   min-height: 100vh;
   row-gap: 1.5rem;
   min-width: 200px;
+  padding: 1rem;
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    min-height: auto;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+  }
 `;

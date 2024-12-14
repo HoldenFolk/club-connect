@@ -31,13 +31,15 @@ export const ClubPage = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [clubName]);
 
   return (
     <PageTemplate>
       <MainContainer>
         <VerticalSidebar />
-        <ClubContent clubData={clubData} />
+        <ContentContainer>
+          <ClubContent clubData={clubData} />
+        </ContentContainer>
       </MainContainer>
     </PageTemplate>
   );
@@ -46,6 +48,16 @@ export const ClubPage = () => {
 const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
   height: 100vh;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
 `;

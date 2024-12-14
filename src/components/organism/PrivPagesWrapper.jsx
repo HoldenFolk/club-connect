@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import VerticalSidebar from '../molecule/VerticalSidebar';
 import HorizontalHeader from '../atomic/HorizontalHeader';
 import Icon from '../atomic/Icon';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const PrivPagesWrapper = ({ children }) => {
@@ -42,16 +41,22 @@ export default PrivPagesWrapper;
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   height: 100vh;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const MainContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   height: 100vh;
+  overflow-y: auto;
+  padding: 1rem;
 `;
 
 const StyledIcon = styled(Icon)`
