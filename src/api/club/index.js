@@ -11,7 +11,6 @@ export const getClubById = async (clubId) => {
 };
 
 export const createClub = async (reqBody, token) => {
-  console.log(reqBody, token);
   const response = await apiClient.post('/api/clubs/create', reqBody, {
     headers: {
       Authorization: `Bearer ${token}`,
