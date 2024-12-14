@@ -7,11 +7,12 @@ import styled from 'styled-components';
  * @param {Object} props - Props for the button.
  * @param {string} props.text - The text to display on the button.
  * @param {"fill"|"outline"} [props.variant] - The button style, either `fill` or `outline`. Defaults to `fill`.
+ * @param {string} [props.color] - The base color for the button's styling.
  * @returns {JSX.Element} The styled button component.
  */
-const Button = ({ text, variant = 'fill', ...props }) => {
+const Button = ({ text, variant = 'fill', color = '#007BFF', ...props }) => {
   return (
-    <StyledButton variant={variant} {...props}>
+    <StyledButton variant={variant} color={color} {...props}>
       {text}
     </StyledButton>
   );
@@ -22,27 +23,20 @@ const StyledButton = styled.button`
   max-height: 50px;
   font-size: 16px;
   border-radius: 20px;
-  font-family: ${({ theme }) => theme.fonts.primary};
-  border: ${({ variant, theme }) =>
-    variant === 'outline'
-      ? `2px solid ${theme.colors.white}`
-      : `2px solid ${theme.colors.white}`};
-  background-color: ${({ variant, theme }) =>
-    variant === 'fill' ? theme.colors.white : 'transparent'};
-  color: ${({ variant, theme }) =>
-    variant === 'outline' ? theme.colors.white : theme.colors.fourth};
+  font-family: ${({ theme }) => theme.fonts.primary || 'Arial, sans-serif'};
+  border: ${({ variant, color }) =>
+    variant === 'outline' ? `2px solid ${color}` : `2px solid ${color}`};
+  background-color: ${({ variant, color }) =>
+    variant === 'fill' ? color : 'transparent'};
+  color: ${({ variant, color }) => (variant === 'outline' ? color : '#fff')};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${({ variant, theme }) =>
-      variant === 'outline' ? theme.colors.white : theme.colors.white};
-    color: ${({ variant, theme }) =>
-      variant === 'outline' ? theme.colors.secondary : theme.colors.secondary};
-    border: ${({ variant, theme }) =>
-      variant === 'outline'
-        ? `2px solid ${theme.colors.white}`
-        : `2px solid ${theme.colors.secondary}`};
+    background-color: ${({ variant, color }) =>
+      variant === 'outline' ? color : '#fff'};
+    color: ${({ variant }) => (variant === 'outline' ? '#fff' : '#000')};
+    border: ${({ color }) => `2px solid ${color}`};
   }
 `;
 

@@ -73,6 +73,7 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
           text={following ? 'Following' : 'Follow'}
           variant={following ? 'fill' : 'outline'}
           onClick={handleFollowClick}
+          color="black"
         />
       </AlignLeftContainer>
     </StyledHeader>

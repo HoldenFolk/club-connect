@@ -13,6 +13,7 @@ const useProfileSettings = () => {
 
   const { userId } = useAttemptLocal();
   const [isEditing, setIsEditing] = useState(false);
+  const [userData, setUserData] = useState({});
 
   const onSubmit = async (data) => {
     try {
@@ -32,6 +33,7 @@ const useProfileSettings = () => {
         if (!userId) return;
         const userData = await getUserById(userId);
         reset(userData); // Populate the form with fetched data
+        setUserData(userData);
       } catch (error) {
         console.error('Error fetching user profile:', error);
       }
@@ -48,6 +50,7 @@ const useProfileSettings = () => {
     isSubmitting,
     isEditing,
     setIsEditing,
+    userData,
   };
 };
 

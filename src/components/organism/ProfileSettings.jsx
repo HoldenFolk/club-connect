@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
+import DeleteConfirmationPopup from '../molecule/DeleteConfirmationPopup';
 import useProfileSettings from '../../hooks/useProfileSettings';
 
-// TODO: Add unsaved changes Logic
+// TODO: ADD DELETE USER FUNCTIONALITY
 const ProfileSettings = () => {
   const {
     onSubmit,
@@ -15,6 +16,21 @@ const ProfileSettings = () => {
     isEditing,
     setIsEditing,
   } = useProfileSettings();
+
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
+
+  const handleDeleteClick = () => {
+    setIsDeletePopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsDeletePopupOpen(false);
+  };
+
+  const handleConfirmDelete = () => {
+    console.log('Profile deletion initiated');
+    setIsDeletePopupOpen(false);
+  };
 
   return (
     <FormWrapper>
@@ -31,8 +47,7 @@ const ProfileSettings = () => {
           validation={{
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@(mail\.mcgill\.ca|mcgill\.ca)$/,
-              message:
-                'Invalid email address (must be @mail.mcgill.ca or @mcgill.ca)',
+              message: 'Invalid email address (must be @mail.mcgill.ca or @mcgill.ca)',
             },
           }}
         />
@@ -100,7 +115,23 @@ const ProfileSettings = () => {
             />
           )}
         </ButtonContainer>
+
+        <DeleteButtonContainer>
+          <Button
+            type="button"
+            variant="outline"
+            color="#dc3545"
+            text="Delete Profile"
+            onClick={handleDeleteClick}
+          />
+        </DeleteButtonContainer>
       </form>
+
+      <DeleteConfirmationPopup
+        isOpen={isDeletePopupOpen}
+        onClose={handleClosePopup}
+        onConfirm={handleConfirmDelete}
+      />
     </FormWrapper>
   );
 };
@@ -131,4 +162,10 @@ const ButtonContainer = styled.div`
   justify-content: center;
   margin-top: 1.5rem;
   gap: 1rem;
+`;
+
+const DeleteButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 `;
