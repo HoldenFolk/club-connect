@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // TODO: Improve? Logic may not be great
 const useAttemptLocal = () => {
+  console.log('Attempting auth from local');
   const navigate = useNavigate();
   const [authToken, setAuthToken] = useState('');
   const [userId, setUserId] = useState('');
@@ -22,7 +23,6 @@ const useAttemptLocal = () => {
       navigate('/login');
     }
   }, [navigate]);
-
   return { authToken, userId };
 };
 

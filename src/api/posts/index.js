@@ -12,3 +12,12 @@ export const getClubPosts = async (clubName, postCount) => {
   );
   return response.data;
 };
+
+export const getDashboardPosts = async (postCount, token) => {
+  const response = await apiClient.get(`/api/posts/dashboard/${postCount}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};

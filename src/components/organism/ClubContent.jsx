@@ -4,20 +4,21 @@ import ClubHeader from '../molecule/ClubHeader';
 import ClickableText from '../atomic/ClickableText';
 import PostList from './PostList';
 import { getClubPosts } from '../../api/posts';
+import settings from '../../globalSettings';
 
+// TODO: Clean Logic, Change post count?
 const ClubContent = ({ clubData }) => {
   const { name, logo, banner, category, description, website, clubID } =
     clubData;
+  console.log('Club Data: ', clubData);
   const [posts, setPosts] = useState([]);
-  const POST_COUNT = 20;
-  const DEFAULT_LOGO =
-    'https://imgs.search.brave.com/JUREPkVy5BaQNfhp1cNHrqH8bElEKYzc05D_64RBAtQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtMDAuaWNvbmR1/Y2suY29tL2Fzc2V0/cy4wMC9wcm9maWxl/LWRlZmF1bHQtaWNv/bi01MTJ4NTExLXY0/c3c0bTI5LnBuZw';
+  const { BASE_POST_COUNT, DEFAULT_CLUB_LOGO } = settings;
   // Fetch post data on component mount
   useEffect(() => {
     const fetchAPIData = async () => {
       try {
         if (!name) return;
-        const response = await getClubPosts(name, POST_COUNT);
+        const response = await getClubPosts(name, BASE_POST_COUNT);
         setPosts(response.posts);
       } catch (error) {
         console.error('Error fetching clubData:', error);
@@ -31,7 +32,7 @@ const ClubContent = ({ clubData }) => {
     <ClubContainer>
       <ClubHeader
         name={name}
-        logo={logo || DEFAULT_LOGO}
+        logo={logo || DEFAULT_CLUB_LOGO}
         banner={banner}
         clubID={clubID}
       />
@@ -51,9 +52,7 @@ const ClubContent = ({ clubData }) => {
       </ClubInfo>
 
       {/* Render PostList only if posts is not empty */}
-      {posts && (
-        <PostList posts={posts} defaultLogo={DEFAULT_LOGO} clubName={name} />
-      )}
+      {posts && <PostList posts={posts} defaultLogo={DEFAULT_CLUB_LOGO} />}
     </ClubContainer>
   );
 };

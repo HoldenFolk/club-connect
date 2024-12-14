@@ -4,10 +4,12 @@ import { ClubLogo } from '../atomic/ClubLogo';
 import ClickableText from '../atomic/ClickableText';
 import { useNavigate } from 'react-router-dom';
 import { getUserById } from '../../api/user';
+import { getClubById } from '../../api';
 
-const Post = ({ title, content, logo, clubName, datePosted, userId }) => {
+const Post = ({ title, content, logo, datePosted, userId, clubId }) => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState();
+  const [clubData, setClubData] = useState();
 
   // Fetch user data on component mount
   useEffect(() => {
@@ -16,6 +18,15 @@ const Post = ({ title, content, logo, clubName, datePosted, userId }) => {
         if (!userId) return;
         const response = await getUserById(userId);
         setUserData(response);
+      } catch (error) {
+        console.error('Error fetching clubData:', error);
+      }
+
+      try {
+        if (!clubId) return;
+        const response = await getClubById(clubId);
+        console.log('Club Data Response: ', response);
+        setClubData(response);
       } catch (error) {
         console.error('Error fetching clubData:', error);
       }
@@ -43,9 +54,9 @@ const Post = ({ title, content, logo, clubName, datePosted, userId }) => {
         <ContainerLeft>
           {logo && <StyledLogo src={logo} alt="Club Logo" />}
           <ClickableText
-            text={clubName}
+            text={clubData?.clubName}
             variant="dark"
-            onClick={() => navigate(`/club/${clubName}`)}
+            onClick={() => navigate(`/club/${clubData?.name}`)}
           />
         </ContainerLeft>
         <ContainerRight>

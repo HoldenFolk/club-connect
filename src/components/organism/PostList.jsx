@@ -2,21 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import Post from '../molecule/Post';
 
-const PostList = ({ posts, defaultLogo, clubName }) => {
+const PostList = ({ posts, defaultLogo }) => {
   return (
     <PostListContainer>
-      {posts.map((post, index) => (
-        <PostWrapper key={index}>
-          <Post
-            title={post.title}
-            content={post.text}
-            logo={post.logo || defaultLogo}
-            clubName={clubName}
-            datePosted={post.date}
-            userId={post.userID}
-          />
-        </PostWrapper>
-      ))}
+      {posts.length > 0 ? (
+        posts.map((post, index) => (
+          <PostWrapper key={index}>
+            <Post
+              title={post.title}
+              content={post.text}
+              logo={post.logo || defaultLogo}
+              clubId={post.clubID}
+              datePosted={post.date}
+              userId={post.userID}
+            />
+          </PostWrapper>
+        ))
+      ) : (
+        <PlaceholderText>No Posts Here Yet...</PlaceholderText>
+      )}
     </PostListContainer>
   );
 };
@@ -35,4 +39,12 @@ const PostListContainer = styled.div`
 
 const PostWrapper = styled.div`
   width: 100%;
+`;
+
+const PlaceholderText = styled.p`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.fourth};
+  text-align: center;
+  font-family: ${({ theme }) => theme.fonts.primary};
+  padding: 2rem;
 `;
