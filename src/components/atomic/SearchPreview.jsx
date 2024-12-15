@@ -76,7 +76,6 @@ const Container = styled.div`
   transition:
     transform 1s ease,
     box-shadow 1s ease;
-  
 
   &:hover {
     outline: none;

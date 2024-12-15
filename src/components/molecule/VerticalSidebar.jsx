@@ -2,11 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../atomic/Logo';
 import Icon from '../atomic/Icon';
-import {
-  faSearch,
-  faCalendar,
-  faHome,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faHome } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const VerticalSidebar = () => {
@@ -22,10 +18,10 @@ const VerticalSidebar = () => {
         onClick={() => navigate('/search')}
       />
       <Icon
-        icon={faCalendar}
-        alt="Calendar Icon"
-        text="Events"
-        onClick={() => navigate('/events')}
+        icon={faUser}
+        alt="Profile Icon"
+        text="Profile"
+        onClick={() => navigate('/profile')}
       />
       <Icon
         icon={faHome}

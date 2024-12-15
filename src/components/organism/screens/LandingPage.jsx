@@ -8,7 +8,6 @@ import { BackgroundContainer } from '../../molecule/BackgroundContainer.style';
 import { useNavigate } from 'react-router-dom';
 
 // Ladning Page Screen Component
-// TODO: Test styles on diffent devices
 export const LandingPage = () => {
   const navigate = useNavigate();
 

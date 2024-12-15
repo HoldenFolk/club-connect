@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import VerticalSidebar from '../molecule/VerticalSidebar';
 import HorizontalHeader from '../atomic/HorizontalHeader';
 import Icon from '../atomic/Icon';
-import { faUser, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const PrivPagesWrapper = ({ children }) => {
@@ -19,14 +19,6 @@ const PrivPagesWrapper = ({ children }) => {
               icon={faPlus}
               text="Create Club"
               onClick={() => navigate('/clubcreate')}
-            />
-          }
-          rightElement={
-            <StyledIcon
-              icon={faUser}
-              alt="Profile Icon"
-              text="Profile"
-              onClick={() => navigate('/profile')}
             />
           }
         />

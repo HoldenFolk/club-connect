@@ -4,7 +4,7 @@ import Icon from '../atomic/Icon';
 import HorizontalHeader from '../atomic/HorizontalHeader';
 import { ClubLogo } from '../atomic/ClubLogo';
 import { useNavigate } from 'react-router-dom';
-import { faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Button from '../atomic/Button';
 import useAttemptLocal from '../../hooks/useAttemptLocal';
 import { followClub, unfollowClub, isFollowing } from '../../api';
@@ -47,14 +47,6 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
   return (
     <StyledHeader
       bannerImage={banner}
-      rightElement={
-        <Icon
-          icon={faUser}
-          alt="Profile Icon"
-          text="Profile"
-          onClick={() => navigate('/profile')}
-        />
-      }
       leftElement={
         <Icon
           icon={faArrowLeft}
@@ -70,7 +62,7 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
         />
         <AlignLeftContainerStacking>
           <ClubName>{name}</ClubName>
-          <Button
+          <StyledButton
             text={following ? 'Following' : 'Follow'}
             variant={following ? 'fill' : 'outline'}
             onClick={handleFollowClick}
@@ -126,6 +118,14 @@ const AlignLeftContainerStacking = styled.div`
 const ClubName = styled.h1`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 2rem;
+  color: black; /* Main text color */
+
+  /* Subtle white outline effect using a slight blur and smaller offsets */
+  text-shadow:
+    -0.5px -0.5px 1px rgba(255, 255, 255, 0.7),
+    0.5px -0.5px 1px rgba(255, 255, 255, 0.7),
+    -0.5px 0.5px 1px rgba(255, 255, 255, 0.7),
+    0.5px 0.5px 1px rgba(255, 255, 255, 0.7);
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -144,4 +144,14 @@ const StyledLogo = styled(ClubLogo)`
     height: 50px;
     margin-bottom: 1rem;
   }
+`;
+
+const StyledButton = styled(Button)`
+  text-shadow:
+    -0.25px -0.25px 1px rgba(255, 255, 255, 0.7),
+    0.25px -0.25px 1px rgba(255, 255, 255, 0.7),
+    -0.25px 0.25px 1px rgba(255, 255, 255, 0.7),
+    0.25px 0.25px 1px rgba(255, 255, 255, 0.7);
+  /* Add a white border */
+  border: 1px solid white;
 `;
