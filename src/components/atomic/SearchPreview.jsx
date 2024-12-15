@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { keyframes } from 'styled-components';
 
 const SearchPreview = ({ result }) => {
-  // Result is an array of clubs ->
-  // And API call to get the specific club info
   const navigate = useNavigate();
   const { name } = result;
   const { description } = result;
@@ -43,11 +42,26 @@ const Title = styled.div`
 const Logo = styled.div`
   background-image: url(${(props) => props.logoUrl});
   width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 5rem;
   border-radius: 50%;
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 const Container = styled.div`
@@ -58,9 +72,11 @@ const Container = styled.div`
   flex-direction: row;
   font-family: ${({ theme }) => theme.fonts.primary};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: ${fadeIn} 1s ease-out;
   transition:
     transform 1s ease,
     box-shadow 1s ease;
+  
 
   &:hover {
     outline: none;

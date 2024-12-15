@@ -19,10 +19,11 @@ const CreateClubForm = () => {
   const [logoUrl, setLogoUrl] = useState('');
   const [bannerUrl, setBannerUrl] = useState('');
 
-  const handleImageUpload = async (file) => {
+  const handleImageUpload = async (file, imageType) => {
     const CLOUDINARY_URL =
       'https://api.cloudinary.com/v1_1/ddmbdjeup/image/upload';
     const UPLOAD_PRESET = 'ClubConnect';
+    const TRANSFORMATION = imageType === 'logo' ? 't_ProfilePic' : 't_banner';
 
     const formData = new FormData();
     formData.append('file', file);
@@ -32,8 +33,15 @@ const CreateClubForm = () => {
       const response = await axios.post(CLOUDINARY_URL, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      console.log('Response from Cloudinary:', response.data.secure_url);
-      return response.data.secure_url;
+
+      const uploadedImageUrl = response.data.secure_url;
+      const transformedUrl = uploadedImageUrl.replace(
+        '/upload/',
+        `/upload/${TRANSFORMATION}/`
+      );
+
+      console.log('Response from Cloudinary:', transformedUrl);
+      return transformedUrl;
     } catch (error) {
       console.error('Error uploading image:', error);
       throw error;
@@ -46,7 +54,7 @@ const CreateClubForm = () => {
       const bannerFile = e.bannerFile[0];
 
       const [logoUrl, bannerUrl] = await Promise.all([
-        handleImageUpload(logoFile),
+        handleImageUpload(logoFile, 'logo'),
         handleImageUpload(bannerFile),
       ]);
 

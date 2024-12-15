@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { searchClubs } from '../../api/club';
 import SearchPreview from '../atomic/SearchPreview';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const SearchResults = ({ query }) => {
   const [results, setResults] = useState([]);
@@ -36,23 +36,23 @@ const SearchResults = ({ query }) => {
 
   return (
     <MainContainer>
-      {results.length === 0 ? (
-        <h2>No Results for {query} </h2>
-      ) : (
+      {results.length > 0 ? (
         <ul>
           {results.map((result, index) => (
             <SearchPreview key={index} result={result} index={index} />
           ))}
         </ul>
+      ) : (
+        <h2>No Results for {query} </h2>
       )}
     </MainContainer>
   );
 };
-
-export default SearchResults;
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+
+export default SearchResults;
