@@ -9,8 +9,7 @@ const LandingTitle = () => {
         <Header>The Club Hub</Header>
         <SubHeader>Welcome To My Clubs</SubHeader>
         <ContentText>
-          Welcome to Mcgill Blah blah Welcome to Mcgill Blah blah Welcome to
-          Mcgill Blah blah Welcome to Mcgill Blah blah
+          Welcome to the best club management directory for McGill. Creat, find, and join McGill's top clubs!
         </ContentText>
       </TitleContainer>
     </TitleCenterContainer>
@@ -54,7 +53,7 @@ const ContentText = styled.h4`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 1rem;
   margin: 0;
-  text-align: left;
+  text-align: center;
 `;
 
 export default LandingTitle;

@@ -19,3 +19,12 @@ export const updateUserById = async (userId, reqBody) => {
   const response = await apiClient.put(`/api/users/${userId}`, reqBody);
   return response.data;
 };
+
+export const deleteUser = async (token) => {
+  const response = await apiClient.delete(`/api/users/delete/`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};

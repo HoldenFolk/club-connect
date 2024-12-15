@@ -4,9 +4,11 @@ import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
 import { registerUser } from '../../api/user';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const [apiError, setApiError] = useState('');
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,6 +22,7 @@ const RegisterForm = () => {
       console.log(e);
       const res = await registerUser(e);
       console.log(res);
+      navigate('/login');
     } catch (error) {
       console.log(error.response);
       setApiError(

@@ -4,6 +4,9 @@ import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
 import DeleteConfirmationPopup from '../molecule/DeleteConfirmationPopup';
 import useProfileSettings from '../../hooks/useProfileSettings';
+import { useNavigate } from 'react-router-dom';
+import { deleteUser } from '../../api';
+import useAttemptLocal from '../../hooks/useAttemptLocal';
 
 // TODO: ADD DELETE USER FUNCTIONALITY
 const ProfileSettings = () => {
@@ -18,18 +21,32 @@ const ProfileSettings = () => {
   } = useProfileSettings();
 
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
+  const navigate = useNavigate();
+  const { authToken } = useAttemptLocal();
 
   const handleDeleteClick = () => {
     setIsDeletePopupOpen(true);
+  };
+
+  const handleLogOut = () => {
+    localStorage.clear();
+    navigate('/login');
   };
 
   const handleClosePopup = () => {
     setIsDeletePopupOpen(false);
   };
 
-  const handleConfirmDelete = () => {
-    console.log('Profile deletion initiated');
-    setIsDeletePopupOpen(false);
+  const handleConfirmDelete = async () => {
+    try {
+      const response = await deleteUser(authToken);
+      console.log('Delete User Response: ', response);
+      localStorage.clear();
+      setIsDeletePopupOpen(false);
+      navigate('/login');
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
   };
 
   return (
@@ -126,6 +143,13 @@ const ProfileSettings = () => {
               text="Delete Profile"
               onClick={handleDeleteClick}
             />
+            <Button
+              type="button"
+              variant="outline"
+              color="#5386E4"
+              text="Log Out"
+              onClick={handleLogOut}
+            />
           </DeleteButtonContainer>
         </form>
 
@@ -173,6 +197,7 @@ const DeleteButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  gap: 1rem;
 `;
 
 const AlignCenterContainer = styled.div`
