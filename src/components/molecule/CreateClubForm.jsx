@@ -7,6 +7,7 @@ import Button from '../atomic/Button';
 import { createClub } from '../../api/club/index';
 import useAttemptLocal from '../../hooks/useAttemptLocal';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateClubForm = () => {
   const {
@@ -17,6 +18,7 @@ const CreateClubForm = () => {
 
   const [logoUrl, setLogoUrl] = useState('');
   const [bannerUrl, setBannerUrl] = useState('');
+  const navigate = useNavigate();
 
   const handleImageUpload = async (file, imageType) => {
     const CLOUDINARY_URL =
@@ -62,6 +64,7 @@ const CreateClubForm = () => {
 
       const res = await createClub(e, authToken);
       console.log('Club created successfully:', res);
+      navigate(`/club/${e.name}`);
     } catch (error) {
       console.error('Error creating club:', error);
     }
@@ -140,7 +143,6 @@ const CreateClubForm = () => {
             disabled={isSubmitting}
             variant="fill"
             text="Create"
-            //onClick={() => navigate('/profile')}
           >
             {isSubmitting ? 'Creating...' : 'Create'}
           </Button>
