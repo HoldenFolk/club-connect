@@ -19,6 +19,7 @@ export const Dashboard = () => {
         if (!authToken) return;
         const response = await getDashboardPosts(BASE_POST_COUNT, authToken);
         setPosts(response.posts);
+        console.log(response.posts);
       } catch (error) {
         console.error('Error fetching clubData:', error);
       }

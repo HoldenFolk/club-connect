@@ -51,7 +51,7 @@ const Post = ({ title, content, logo, datePosted, userId, clubId }) => {
     <PostContainer>
       <HorizontalContainer>
         <ContainerLeft>
-          {logo && <StyledLogo src={logo} alt="Club Logo" />}
+          {logo && <StyledLogo src={clubData?.logo || logo} alt="Club Logo" />}
           <ClickableText
             text={clubData?.name}
             variant="dark"

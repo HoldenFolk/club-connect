@@ -26,7 +26,7 @@ const PostForm = () => {
     try {
       const res = await createPost(e, authToken);
       console.log('Post Response: ', res);
-      navigate(`club/${clubName}`);
+      navigate(`/club/${clubName}`);
     } catch (error) {
       console.log('Error Response', error.response);
       setApiError(
