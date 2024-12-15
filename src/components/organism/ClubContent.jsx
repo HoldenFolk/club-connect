@@ -5,14 +5,17 @@ import ClickableText from '../atomic/ClickableText';
 import PostList from './PostList';
 import { getClubPosts } from '../../api/posts';
 import settings from '../../globalSettings';
+import Button from '../atomic/Button';
+import { useNavigate } from 'react-router-dom';
+import { theme } from '../../styles/constants';
 
 // TODO: Clean Logic, Change post count?
 const ClubContent = ({ clubData }) => {
   const { name, logo, banner, category, description, website, clubID } =
     clubData;
-  console.log('Club Data: ', clubData);
   const [posts, setPosts] = useState([]);
   const { BASE_POST_COUNT, DEFAULT_CLUB_LOGO } = settings;
+  const navigate = useNavigate();
   // Fetch post data on component mount
   useEffect(() => {
     const fetchAPIData = async () => {
@@ -28,6 +31,10 @@ const ClubContent = ({ clubData }) => {
     fetchAPIData();
   }, [name]);
 
+  const handlePostClick = async () => {
+    navigate(`/club/${name}/post`);
+  };
+
   return (
     <ClubContainer>
       <ClubHeader
@@ -38,6 +45,12 @@ const ClubContent = ({ clubData }) => {
       />
       <ClubInfo>
         <HorizontalContainer>
+          <Button
+            text={'Post +'}
+            variant={'fill'}
+            onClick={handlePostClick}
+            color={theme.colors.tertiary}
+          />
           <ClubCategory>Category: {category}</ClubCategory>
           {website && (
             <ClickableText
@@ -67,7 +80,6 @@ const ClubContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   border-radius: 8px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   height: 100vh;
 `;
 
@@ -84,6 +96,7 @@ const ClubCategory = styled.h3`
   font-size: 1rem;
   color: #6c757d;
   margin-right: 2rem;
+  margin-left: 2rem;
 `;
 
 const ClubDescription = styled.p`

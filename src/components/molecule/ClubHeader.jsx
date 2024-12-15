@@ -8,7 +8,6 @@ import { faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Button from '../atomic/Button';
 import useAttemptLocal from '../../hooks/useAttemptLocal';
 import { followClub, unfollowClub, isFollowing } from '../../api';
-import { theme } from '../../styles/constants';
 
 const ClubHeader = ({ banner, logo, name, clubID }) => {
   const navigate = useNavigate();
@@ -29,10 +28,6 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
     } catch (error) {
       console.error('Error Following/Unfollowing Club:', error);
     }
-  };
-
-  const handlePostClick = async () => {
-    navigate(`/club/${name}/post`);
   };
 
   useEffect(() => {
@@ -73,19 +68,15 @@ const ClubHeader = ({ banner, logo, name, clubID }) => {
           src={logo || 'https://via.placeholder.com/100'}
           alt="Club Logo"
         />
-        <ClubName>{name}</ClubName>
-        <Button
-          text={following ? 'Following' : 'Follow'}
-          variant={following ? 'fill' : 'outline'}
-          onClick={handleFollowClick}
-          color="black"
-        />
-        <Button
-          text={'Post +'}
-          variant={'fill'}
-          onClick={handlePostClick}
-          color={theme.colors.tertiary}
-        />
+        <AlignLeftContainerStacking>
+          <ClubName>{name}</ClubName>
+          <Button
+            text={following ? 'Following' : 'Follow'}
+            variant={following ? 'fill' : 'outline'}
+            onClick={handleFollowClick}
+            color="black"
+          />
+        </AlignLeftContainerStacking>
       </AlignLeftContainer>
     </StyledHeader>
   );
@@ -112,8 +103,34 @@ const AlignLeftContainer = styled.div`
   gap: 2rem;
 `;
 
+const AlignLeftContainerStacking = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 175px;
+  gap: 2rem;
+
+  /* Stack elements vertically on smaller screens */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: auto; /* Adjust height to fit content */
+    text-align: center;
+    margin-top: 1rem;
+  }
+`;
+
 const ClubName = styled.h1`
   font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
 `;
 
 const StyledLogo = styled(ClubLogo)`
