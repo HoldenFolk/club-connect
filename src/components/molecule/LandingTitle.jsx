@@ -9,7 +9,8 @@ const LandingTitle = () => {
         <Header>The Club Hub</Header>
         <SubHeader>Welcome To My Clubs</SubHeader>
         <ContentText>
-          Welcome to the best club management directory for McGill. Creat, find, and join McGill's top clubs!
+          Welcome to the best club management directory for McGill. Creat, find,
+          and join McGill&apos;s top clubs!
         </ContentText>
       </TitleContainer>
     </TitleCenterContainer>

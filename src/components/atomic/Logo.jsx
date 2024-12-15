@@ -3,7 +3,6 @@ import logo_white from '../../assets/logo_white.png';
 import logo_black from '../../assets/logo_black.png';
 import { useNavigate } from 'react-router-dom';
 
-// TODO: Change so that onClick is passable prop
 // Custom logo component with a white and black variant
 const Logo = ({ variant = 'white', height = 80, ...props }) => {
   const src = variant === 'white' ? logo_white : logo_black;

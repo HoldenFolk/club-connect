@@ -2,7 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Header component with left, center (children), and right elements
-const HorizontalHeader = ({ leftElement, children, rightElement, ...props }) => {
+const HorizontalHeader = ({
+  leftElement,
+  children,
+  rightElement,
+  ...props
+}) => {
   return (
     <HeaderDiv {...props}>
       <LeftContent>{leftElement}</LeftContent>

@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { deleteUser } from '../../api';
 import useAttemptLocal from '../../hooks/useAttemptLocal';
 
-// TODO: ADD DELETE USER FUNCTIONALITY
 const ProfileSettings = () => {
   const {
     onSubmit,

@@ -17,7 +17,6 @@ const LoginForm = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  // TODO: Add error message display
   const onSubmit = async (e) => {
     try {
       setApiError(''); // Clear previous errors before submitting

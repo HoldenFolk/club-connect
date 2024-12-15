@@ -7,7 +7,6 @@ import Icon from '../../atomic/Icon';
 import CreateClubForm from '../../molecule/CreateClubForm';
 import VerticalSidebar from '../../molecule/VerticalSidebar';
 
-// Add dynamic styling to this component
 export const ClubCreate = () => {
   const navigate = useNavigate();
 

@@ -60,7 +60,6 @@ const CreateClubForm = () => {
     }
   };
 
-  const navigate = useNavigate();
   const { authToken } = useAttemptLocal();
   return (
     <FormWrapper>
@@ -81,13 +80,13 @@ const CreateClubForm = () => {
           placeholder="What is your club about?"
         />
         <TextField
-          label="Faculty"
+          label="Category"
           name="category"
           register={register}
           errors={errors}
           type="text"
           validation={{ required: 'Faculty is required' }}
-          placeholder="Your club faculty"
+          placeholder="The Category your club falls under"
         />
         <ImageWrapper>
           <label>Banner Image</label>
@@ -95,7 +94,7 @@ const CreateClubForm = () => {
             type="file"
             name="bannerFile"
             accept="image/*"
-            {...register('bannerFile', { required: 'Banner is required' })}
+            {...register('bannerFile')}
           />
           {bannerUrl && <ImagePreview src={bannerUrl} alt="Banner Preview" />}
         </ImageWrapper>
@@ -106,13 +105,13 @@ const CreateClubForm = () => {
             type="file"
             accept="image/*"
             name="logoFile"
-            {...register('logoFile', { required: 'Logo is required' })}
+            {...register('logoFile')}
           />
           {logoUrl && <ImagePreview src={logoUrl} alt="Logo Preview" />}
         </ImageWrapper>
 
         <TextField
-          label="Instagram"
+          label="Club Website"
           name="website"
           register={register}
           errors={errors}
