@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
@@ -9,6 +9,7 @@ import { saveAuthTokenLocal, saveUserIdLocal } from '../../utils/localStorage';
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const [apiError, setApiError] = useState('');
 
   const {
     register,
@@ -19,6 +20,7 @@ const LoginForm = () => {
   // TODO: Add error message display
   const onSubmit = async (e) => {
     try {
+      setApiError(''); // Clear previous errors before submitting
       const res = await logInUser(e);
       console.log(res);
 
@@ -27,6 +29,10 @@ const LoginForm = () => {
       navigate('/dashboard');
     } catch (error) {
       console.log(error.response);
+      setApiError(
+        error.response?.data?.error ||
+          'An unexpected error occurred. Please try again.'
+      );
     }
   };
 
@@ -34,6 +40,7 @@ const LoginForm = () => {
     <FormWrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormHeader>Login</FormHeader>
+        {apiError && <ErrorMessage>{apiError}</ErrorMessage>}
         <TextField
           label="Email"
           name="email"
@@ -98,4 +105,10 @@ const FormWrapper = styled.div`
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: ${({ theme }) => theme.colors.fourth};
+`;
+
+const ErrorMessage = styled.p`
+  color: ${({ theme }) => theme.colors.error || 'red'};
+  font-size: 1rem;
+  text-align: center;
 `;
