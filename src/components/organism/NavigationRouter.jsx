@@ -14,7 +14,7 @@ import { ProfilePage } from './screens/ProfilePage';
 import { ClubPage } from './screens/ClubPage';
 import { ClubCreate } from './screens/ClubCreate';
 import { PostPage } from './screens/PostPage';
-
+import { Search } from './screens/Search';
 const NavigationRouter = () => {
   return (
     <Router>
@@ -30,6 +30,7 @@ const NavigationRouter = () => {
         <Route path="/club/:clubName" element={<ClubPage />} />
         <Route path="/clubcreate" element={<ClubCreate />} />
         <Route path="/club/:clubName/post" element={<PostPage />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   );

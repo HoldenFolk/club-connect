@@ -18,3 +18,7 @@ export const createClub = async (reqBody, token) => {
   });
   return response.data;
 };
+export const searchClubs = async (string) => {
+  const response = await apiClient.get(`/api/clubs/search/${string}`);
+  return response.data;
+};
