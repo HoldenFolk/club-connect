@@ -1,7 +1,11 @@
 import apiClient from '../apiClient';
 
-export const createPost = async (reqBody) => {
-  const response = await apiClient.post('/api/posts/', reqBody);
+export const createPost = async (reqBody, token) => {
+  const response = await apiClient.post('/api/posts/create', reqBody, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
 
