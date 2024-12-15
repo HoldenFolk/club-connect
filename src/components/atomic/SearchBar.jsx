@@ -5,7 +5,6 @@ const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
-    console.log('Searching for:', query);
     onSearch(query);
   };
 

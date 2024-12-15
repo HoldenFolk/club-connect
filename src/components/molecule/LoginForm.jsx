@@ -21,7 +21,6 @@ const LoginForm = () => {
     try {
       setApiError(''); // Clear previous errors before submitting
       const res = await logInUser(e);
-      console.log(res);
 
       saveAuthTokenLocal(res.token);
       saveUserIdLocal(res.user.userID);

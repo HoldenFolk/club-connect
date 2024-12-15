@@ -41,7 +41,6 @@ const CreateClubForm = () => {
         `/upload/${TRANSFORMATION}/`
       );
 
-      console.log('Response from Cloudinary:', transformedUrl);
       return transformedUrl;
     } catch (error) {
       console.error('Error uploading image:', error);

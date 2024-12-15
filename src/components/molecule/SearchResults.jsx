@@ -17,7 +17,6 @@ const SearchResults = ({ query }) => {
           console.log(clubs);
           if (Array.isArray(clubs)) {
             setResults(clubs);
-            console.log('results:', results);
           } else {
             setResults([]);
             console.log('No results found');

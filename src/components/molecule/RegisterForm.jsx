@@ -19,9 +19,7 @@ const RegisterForm = () => {
   const onSubmit = async (e) => {
     setApiError(''); // Clear previous errors before submitting
     try {
-      console.log(e);
       const res = await registerUser(e);
-      console.log(res);
       navigate('/login');
     } catch (error) {
       console.log(error.response);

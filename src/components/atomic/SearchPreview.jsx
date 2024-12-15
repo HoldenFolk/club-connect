@@ -8,7 +8,6 @@ const SearchPreview = ({ result }) => {
   const { name } = result;
   const { description } = result;
   const { logo } = result;
-  console.log('result: ', result);
 
   //console.log('Current Object', currentObject);
   const defaultUrl =
