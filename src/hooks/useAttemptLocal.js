@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getAuthTokenLocal, getUserIdLocal } from '../utils/localStorage';
 
-// TODO: Improve? Logic may not be great
 const useAttemptLocal = () => {
-  console.log('Attempting auth from local');
   const navigate = useNavigate();
   const [authToken, setAuthToken] = useState('');
   const [userId, setUserId] = useState('');
 
   useEffect(() => {
     // Attempt to get vars from local storage
-    const auth = localStorage.getItem('authToken');
-    const Id = localStorage.getItem('userId');
+    const auth = getAuthTokenLocal();
+    const Id = getUserIdLocal();
 
     // Update the state of the vars
     setAuthToken(auth);

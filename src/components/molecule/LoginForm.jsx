@@ -4,16 +4,10 @@ import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
 import { logInUser } from '../../api/user';
-import { useDispatch } from 'react-redux';
-import {
-  setIsLoggedIn,
-  setAuthToken,
-} from '../../providers/redux/slices/globalStatusSlice';
 import { useNavigate } from 'react-router-dom';
 import { saveAuthTokenLocal, saveUserIdLocal } from '../../utils/localStorage';
 
 const LoginForm = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const {
@@ -28,9 +22,6 @@ const LoginForm = () => {
       const res = await logInUser(e);
       console.log(res);
 
-      // If login is sucessfull then save the auth token to local storage (and global state)
-      dispatch(setAuthToken(res.token));
-      dispatch(setIsLoggedIn(true));
       saveAuthTokenLocal(res.token);
       saveUserIdLocal(res.user.userID);
       navigate('/dashboard');

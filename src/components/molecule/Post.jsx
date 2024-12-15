@@ -25,7 +25,6 @@ const Post = ({ title, content, logo, datePosted, userId, clubId }) => {
       try {
         if (!clubId) return;
         const response = await getClubById(clubId);
-        console.log('Club Data Response: ', response);
         setClubData(response);
       } catch (error) {
         console.error('Error fetching clubData:', error);
