@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { keyframes } from 'styled-components';
+import { ClubLogo } from './ClubLogo';
 
 const SearchPreview = ({ result }) => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const SearchPreview = ({ result }) => {
 
   return (
     <Container onClick={() => navigate(`/club/${name}`)}>
-      <Logo logoUrl={logo === 'logo' ? defaultUrl : logo} />
+      <StyledLogo src={logo === 'logo' ? defaultUrl : logo} />
       <TextContainer>
         <Title> {name} </Title>
         <Description> {description} </Description>
@@ -38,24 +39,10 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const Logo = styled.div`
-  background-image: url(${(props) => props.logoUrl});
-  width: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5rem;
-  border-radius: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-right: 2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+const StyledLogo = styled(ClubLogo)`
+  height: 60px;
+  width: 60px;
+  margin-right: 1rem;
 `;
 
 const fadeIn = keyframes`
