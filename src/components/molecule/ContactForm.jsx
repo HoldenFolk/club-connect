@@ -3,8 +3,10 @@ import styled, { keyframes } from 'styled-components';
 import { useForm } from 'react-hook-form';
 import TextField from '../atomic/TextField';
 import Button from '../atomic/Button';
+import { useNavigate } from 'react-router-dom';
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -14,6 +16,7 @@ const ContactForm = () => {
   // TODO: Add form submission logic to API here
   const onSubmit = (e) => {
     console.log(e);
+    navigate(`/success`);
   };
 
   return (
