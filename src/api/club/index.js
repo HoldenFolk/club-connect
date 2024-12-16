@@ -22,3 +22,9 @@ export const searchClubs = async (string) => {
   const response = await apiClient.get(`/api/clubs/search/${string}`);
   return response.data;
 };
+
+export const getAllClubs = async () => {
+  const response = await apiClient.get('/api/clubs/searchAll/dir');
+  console.log('Index', response);
+  return response.data;
+};
