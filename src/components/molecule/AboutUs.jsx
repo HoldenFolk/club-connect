@@ -7,7 +7,7 @@ const AboutUs = () => {
       <TitleCenterContainer>
         <TitleContainer>
           <Header>About Us</Header>
-          <SubHeader>Welcome To My Clubs</SubHeader>
+          <SubHeader>Welcome To Club Connect</SubHeader>
         </TitleContainer>
       </TitleCenterContainer>
 
