@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { PageTemplate } from '../../template/index';
 import LandingPageHeader from '../../molecule/LandingPageHeader';
-import AboutUs from '../../molecule/AboutUs';
+import SuccessMessage from '../../atomic/SuccessMessage';
 
-export const About = () => {
+export const Success = () => {
   return (
     <PageTemplate>
       <LandingPageHeader variant="dark"></LandingPageHeader>
       <CenterContainer>
-        <AboutUs></AboutUs>
+        <SuccessMessage />
       </CenterContainer>
     </PageTemplate>
   );
@@ -24,3 +24,4 @@ const CenterContainer = styled.div`
   width: 100%;
   margin-bottom: 100px;
 `;
+
