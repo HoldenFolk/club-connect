@@ -24,10 +24,12 @@ const SearchResults = ({ query }) => {
           }
         } else {
           const res = await getAllClubs();
-          const { clubs } = res;
-          if (Array.isArray(clubs)) {
+          console.log('get all response: ', res);
+          const { dir } = res;
+          if (Array.isArray(dir)) {
             // Populate it with 10 results if no query
-            setResults(clubs.slice(0, 10));
+            setResults(dir.slice(0, 10));
+            console.log(results);
           } else {
             setResults([]);
           }
