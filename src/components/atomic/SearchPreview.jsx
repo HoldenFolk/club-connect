@@ -46,10 +46,16 @@ const Logo = styled.div`
   align-items: center;
   height: 5rem;
   border-radius: 50%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   margin-right: 2rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
 `;
 
 const fadeIn = keyframes`

@@ -21,13 +21,16 @@ const AboutUs = () => {
           <SectionText>
             <h3>Who We Are</h3>
             <p>
-              Duis eget cursus justo, id facilisis purus. Suspendisse ante
-              purus, ultricies et pulvinar sed, pellentesque ac neque. Nunc sem
-              nulla, consectetur quis tellus et, sagittis sagittis metus.
-              Pellentesque molestie metus ac eros dictum ultricies. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Maecenas posuere eget
-              tellus a porttitor. Praesent feugiat mollis elit, vitae mattis
-              arcu consequat vitae. Nam sagittis mauris id elementum rutrum.
+              We are ClubConnect, a dedicated platform designed exclusively for
+              McGill University’s vibrant club community. Our mission is to
+              empower McGill clubs by providing an interactive space where they
+              can connect, collaborate, and thrive. Through ClubConnect, clubs
+              can effortlessly promote themselves, plan exciting events, and
+              engage with fellow students. Whether you&apos;re looking to grow
+              your community, organize impactful initiatives, or simply get your
+              club noticed, we’re here to help you make it happen. At
+              ClubConnect, we believe that the strength of McGill’s campus life
+              lies in its clubs—and we’re here to amplify that energy.
             </p>
           </SectionText>
         </Section>
@@ -40,17 +43,21 @@ const AboutUs = () => {
           <SectionText>
             <h3>Why</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-              eget condimentum erat, imperdiet laoreet leo. Mauris faucibus nunc
-              sem, at tincidunt diam eleifend semper. Nulla facilisi. Aenean
-              efficitur maximus lorem, vel maximus odio facilisis vel. Phasellus
-              pellentesque nisi vitae ultricies facilisis. Quisque cursus lectus
-              nec ante volutpat, ut porta massa porta. Proin consectetur ex quis
-              auctor placerat. Fusce et tempus arcu. Sed pretium urna accumsan
-              elit dictum consectetur. Donec volutpat accumsan arcu, non
-              fringilla ex ultrices et. Integer gravida magna dui, ut vestibulum
-              odio condimentum ut. Sed sagittis rutrum odio, ac lobortis orci.
-              Suspendisse vel pellentesque nulla, vel convallis nisl.
+              At McGill, clubs are the heartbeat of campus life. They bring
+              people together, spark passions, and create lasting memories. Yet,
+              we know that running a club comes with its own set of
+              challenges—promoting events, managing memberships, and growing
+              visibility can feel overwhelming. On the other side, for the
+              McGill community, finding clubs and accessing information about
+              them can be just as difficult. Whether you’re a new student
+              searching for the perfect club to join or someone looking to
+              connect with like-minded individuals, the lack of a central hub
+              makes the process frustrating and time-consuming. That’s why
+              ClubConnect was created: to simplify and enhance the way McGill
+              clubs operate and engage. We’re here to bridge the gap between
+              clubs and the McGill community by offering a streamlined platform
+              where collaboration, event planning, promotion, and discovery come
+              effortlessly.
             </p>
           </SectionText>
         </Section>
@@ -63,14 +70,21 @@ const AboutUs = () => {
           <SectionText>
             <h3>What We Do</h3>
             <p>
-              Mauris eu mi non diam semper auctor vitae id turpis. Aenean lorem
-              purus, hendrerit non molestie at, cursus sit amet risus.
-              Suspendisse potenti. Cras arcu ante, pellentesque non velit vitae,
-              pellentesque congue dui. Nulla faucibus auctor magna, sit amet
-              auctor ipsum sodales non. Nunc ut aliquam dui. Nullam vel interdum
-              augue, et interdum ipsum. Aenean porta efficitur pulvinar.
-              Praesent et rhoncus risus. Nam suscipit velit eu ex interdum, non
-              imperdiet ipsum blandit. Fusce at commodo purus.
+              At ClubConnect, we provide a centralized platform tailored to the
+              needs of McGill clubs and the wider McGill community. For clubs,
+              we make it easier to manage day-to-day operations, promote events,
+              and engage with members. From sharing announcements to planning
+              events and showcasing your club’s mission, we give you the tools
+              to shine and grow. For students, faculty, and the broader McGill
+              community, we solve the challenge of finding and connecting with
+              clubs. Our platform simplifies the search process, allowing you to
+              discover clubs that align with your interests, explore upcoming
+              events, and stay updated with the latest activities. In short,
+              we’re here to bring the McGill community closer together by making
+              clubs more accessible, visible, and interactive. Whether
+              you&apos;re looking to join, collaborate, or simply explore,
+              ClubConnect is your go-to space for everything club-related at
+              McGill.
             </p>
           </SectionText>
         </Section>

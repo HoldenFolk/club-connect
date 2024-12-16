@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { searchClubs } from '../../api/club';
 import SearchPreview from '../atomic/SearchPreview';
 import styled from 'styled-components';
+import { getAllClubs } from '../../api/club';
 
 const SearchResults = ({ query }) => {
   const [results, setResults] = useState([]);
@@ -22,7 +23,16 @@ const SearchResults = ({ query }) => {
             console.log('No results found');
           }
         } else {
-          setResults([]);
+          const res = await getAllClubs();
+          console.log('get all response: ', res);
+          const { dir } = res;
+          if (Array.isArray(dir)) {
+            // Populate it with 10 results if no query
+            setResults(dir.slice(0, 10));
+            console.log(results);
+          } else {
+            setResults([]);
+          }
         }
       } catch (error) {
         console.error('Error fetching search results:', error);
