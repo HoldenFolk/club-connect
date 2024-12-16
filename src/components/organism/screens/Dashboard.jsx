@@ -31,7 +31,13 @@ export const Dashboard = () => {
     <PageTemplate>
       <PrivPagesWrapper>
         {/* Render PostList only if posts is not empty */}
-        {posts && <PostList posts={posts} defaultLogo={DEFAULT_CLUB_LOGO} />}
+        {posts && (
+          <PostList
+            posts={posts}
+            defaultLogo={DEFAULT_CLUB_LOGO}
+            placeholderMsg="No Posts On Your Dashboard. Search For a Club and Follow it to See Their Feed Here!"
+          />
+        )}
       </PrivPagesWrapper>
     </PageTemplate>
   );

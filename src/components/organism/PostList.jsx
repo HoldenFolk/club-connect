@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Post from '../molecule/Post';
 
-const PostList = ({ posts, defaultLogo }) => {
+const PostList = ({
+  posts,
+  defaultLogo,
+  placeholderMsg = 'No Posts Here Yet...',
+}) => {
   return (
     <PostListContainer>
       {posts.length > 0 ? (
@@ -19,7 +23,7 @@ const PostList = ({ posts, defaultLogo }) => {
           </PostWrapper>
         ))
       ) : (
-        <PlaceholderText>No Posts Here Yet...</PlaceholderText>
+        <PlaceholderText>{placeholderMsg}</PlaceholderText>
       )}
     </PostListContainer>
   );
