@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React from 'react';
 import HorizontalHeader from '../atomic/HorizontalHeader';
 import Logo from '../atomic/Logo';

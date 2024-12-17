@@ -24,4 +24,3 @@ const CenterContainer = styled.div`
   width: 100%;
   margin-bottom: 100px;
 `;
-

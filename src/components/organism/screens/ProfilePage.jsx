@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React from 'react';
 import { PageTemplate } from '../../template/index';
 import PrivPagesWrapper from '../PrivPagesWrapper';

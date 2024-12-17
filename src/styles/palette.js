@@ -1,3 +1,4 @@
+// Author: Holden Folk
 export const palette = {
   primary: '#DC4142',
   secondary: '#5386E4',

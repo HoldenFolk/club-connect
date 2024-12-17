@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React from 'react';
 import logo_white from '../../assets/logo_white.png';
 import logo_black from '../../assets/logo_black.png';

@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
@@ -19,6 +20,7 @@ const RegisterForm = () => {
   const onSubmit = async (e) => {
     setApiError(''); // Clear previous errors before submitting
     try {
+      // eslint-disable-next-line no-unused-vars
       const res = await registerUser(e);
       navigate('/login');
     } catch (error) {
