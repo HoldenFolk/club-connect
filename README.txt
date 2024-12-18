@@ -9,6 +9,7 @@ Running Website: https://my-clubs.netlify.app
 - npm run start -> run the local server (default port 3000)
 
 ### Backend
+#### Backend Node.JS server for the club connect web application
 - npm install -> install dependencies
 - npm run start -> run the local backend server (default port 5000)
 
@@ -35,7 +36,7 @@ Running Website: https://my-clubs.netlify.app
 
 Created API routes, models, and controllers to maintain MongoDB database for functionality regarding
 1. User registration and login, ensuring necessary specified fields are included.
-User registration based on JWT token using RSA 256 encryption and 48hr expiry.
+    - User registration based on JWT token using RSA 256 encryption and 48hr expiry.
 2. Event creation, get events by clubID, delete event by ID
 3. Keeping track of Clubs followed per user via ClubsFollowed table
 4. Club creation, retreiving club by ID.
