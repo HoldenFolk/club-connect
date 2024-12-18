@@ -1,3 +1,4 @@
+// Author: Torin Andrews
 import React from 'react';
 import styled from 'styled-components';
 import { PageTemplate } from '../../template/index';

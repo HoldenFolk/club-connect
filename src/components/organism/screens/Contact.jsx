@@ -1,3 +1,4 @@
+// Author: Torin Andrews
 import React from 'react';
 import { PageTemplate } from '../../template/index';
 import ContactForm from '../../molecule/ContactForm';
