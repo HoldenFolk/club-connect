@@ -2,10 +2,34 @@
 Club and extracurricular hub web app for McGill students 
 https://my-clubs.netlify.app
 
+# How to Run Local:
+
+### Frontend:
+- npm install -> install dependencies
+- npm run start -> run the local server (default port 3000)
+
+### Backend
+- npm install -> install dependencies
+- npm run start -> run the local backend server (default port 5000)
 
 # Task Distribution
 
 **Holden Folk (Front-end Dev)**
+
+1. Dashboard
+   - Created the dashboard to display your followed club feed
+   - Calls on the following clubs API
+2. Club Page
+    - Created a page to display the individual club profile and post feed
+    - Calls on the get club API and the follow API to follow a club
+        - Also has the create post page and functionality to add a post to the club feed
+3. Login/Sign-up
+    - Created Login/Sign-up pages and functionality
+    - Calls the respective APIs to create a profile and retrieve/store the JWT authentication token in local storage
+4. Profile Page
+   - Created the profile page to view/modify profile information
+   - Also contains a logout button to remove JWT from local storage
+   - Also contains the delete profile functionality to remove the user from the database
 
 **David Holcer (Backend Dev)**
 
