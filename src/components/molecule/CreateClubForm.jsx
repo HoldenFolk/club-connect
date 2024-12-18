@@ -94,7 +94,7 @@ const CreateClubForm = () => {
           register={register}
           errors={errors}
           type="text"
-          validation={{ required: 'Faculty is required' }}
+          validation={{ required: 'Category is required' }}
           placeholder="The Category your club falls under"
         />
         <ImageWrapper>
