@@ -1,6 +1,6 @@
 # club-connect
 Club and extracurricular hub web app for McGill students 
-https://my-clubs.netlify.app
+Running Website: https://my-clubs.netlify.app
 
 # How to Run Local:
 
@@ -32,6 +32,15 @@ https://my-clubs.netlify.app
    - Also contains the delete profile functionality to remove the user from the database
 
 **David Holcer (Backend Dev)**
+
+Created API routes, models, and controllers to maintain MongoDB database for functionality regarding
+1. User registration and login, ensuring necessary specified fields are included.
+User registration based on JWT token using RSA 256 encryption and 48hr expiry.
+2. Event creation, get events by clubID, delete event by ID
+3. Keeping track of Clubs followed per user via ClubsFollowed table
+4. Club creation, retreiving club by ID.
+
+5. Authentication middleware to require protected API calls to neccessitate user authenticated JWT token.
 
 **Mina Dobrijevic (Backend Dev)**
 
