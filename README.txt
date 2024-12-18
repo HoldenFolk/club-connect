@@ -37,11 +37,10 @@ Running Website: https://my-clubs.netlify.app
 Created API routes, models, and controllers to maintain MongoDB database for functionality regarding
 1. User registration and login, ensuring necessary specified fields are included.
     - User registration based on JWT token using RSA 256 encryption and 48hr expiry.
-2. Event creation, get events by clubID, delete event by ID
-3. Keeping track of Clubs followed per user via ClubsFollowed table
-4. Club creation, retreiving club by ID.
+2. Keeping track of Clubs followed per user via ClubsFollowed table
+3. Club creation, retreiving club by ID.
 
-5. Authentication middleware to require protected API calls to neccessitate user authenticated JWT token.
+4. Authentication middleware to require protected API calls to neccessitate user authenticated JWT token.
 
 **Mina Dobrijevic (Backend Dev)**
 
