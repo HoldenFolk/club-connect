@@ -44,6 +44,13 @@ User registration based on JWT token using RSA 256 encryption and 48hr expiry.
 
 **Mina Dobrijevic (Backend Dev)**
 
+Created API routes, models, and controllers to maintain MongoDB database for functionality regarding
+1. Moderator creation. 
+2. Post creation, deletion, editing, and retrieving posts for user dashboard and club directory. 
+3. User deletion. 
+4. Club search by name and edit club information. 
+
+
 **Torin Andrews (Front-end Dev)**
 
 1. Club Creation Page
