@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ClubHeader from '../molecule/ClubHeader';
@@ -9,7 +10,6 @@ import Button from '../atomic/Button';
 import { useNavigate } from 'react-router-dom';
 import { theme } from '../../styles/constants';
 
-// TODO: Clean Logic, Change post count?
 const ClubContent = ({ clubData }) => {
   const { name, logo, banner, category, description, website, clubID } =
     clubData;

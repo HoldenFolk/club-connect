@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../atomic/Logo';
@@ -5,6 +6,7 @@ import Icon from '../atomic/Icon';
 import { faSearch, faUser, faHome } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
+// Dynamic vertical sidebat that turns into a horizontal sidebar on smaller screens
 const VerticalSidebar = () => {
   const navigate = useNavigate();
 

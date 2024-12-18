@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React, { useEffect, useState } from 'react';
 import { PageTemplate } from '../../template/index';
 import VerticalSidebar from '../../molecule/VerticalSidebar';

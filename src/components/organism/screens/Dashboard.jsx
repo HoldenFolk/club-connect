@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React, { useState, useEffect } from 'react';
 import { PageTemplate } from '../../template/index';
 import PrivPagesWrapper from '../PrivPagesWrapper';
@@ -6,7 +7,6 @@ import useAttemptLocal from '../../../hooks/useAttemptLocal';
 import PostList from '../PostList';
 import settings from '../../../globalSettings';
 
-// TODO: Add dynamic post pooulation?
 export const Dashboard = () => {
   const [posts, setPosts] = useState([]);
   const { authToken } = useAttemptLocal();

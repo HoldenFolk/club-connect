@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Icon from '../atomic/Icon';
@@ -120,7 +121,6 @@ const ClubName = styled.h1`
   font-size: 2rem;
   color: black; /* Main text color */
 
-  /* Subtle white outline effect using a slight blur and smaller offsets */
   text-shadow:
     -0.5px -0.5px 1px rgba(255, 255, 255, 0.7),
     0.5px -0.5px 1px rgba(255, 255, 255, 0.7),

@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import styled from 'styled-components';
 
 export const ClubLogo = styled.img`

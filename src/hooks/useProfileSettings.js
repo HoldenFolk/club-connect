@@ -1,3 +1,4 @@
+// Author: Holden Folk
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAttemptLocal from './useAttemptLocal';

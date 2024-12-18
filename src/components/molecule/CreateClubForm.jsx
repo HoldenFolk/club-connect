@@ -103,7 +103,9 @@ const CreateClubForm = () => {
             type="file"
             name="bannerFile"
             accept="image/*"
-            {...register('bannerFile')}
+            {...register('bannerFile', {
+              required: 'Banner image is required',
+            })}
           />
           {bannerUrl && <ImagePreview src={bannerUrl} alt="Banner Preview" />}
         </ImageWrapper>
@@ -114,7 +116,7 @@ const CreateClubForm = () => {
             type="file"
             accept="image/*"
             name="logoFile"
-            {...register('logoFile')}
+            {...register('logoFile', { required: 'Logo image is required' })}
           />
           {logoUrl && <ImagePreview src={logoUrl} alt="Logo Preview" />}
         </ImageWrapper>

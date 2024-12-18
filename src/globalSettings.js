@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+// Author: Holden Folk
 const settings = {
   BASE_API_URL: process.env.REACT_APP_BASE_API_URL || 'http://localhost:3001',
   BASE_POST_COUNT: 20,
